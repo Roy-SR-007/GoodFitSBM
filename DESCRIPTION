@@ -1,5 +1,5 @@
 Package: GoodFitSBM
-Title: Monte Carlo goodness-of-fit tests for Stochastic Blockmodels
+Title: Monte Carlo goodness-of-fit tests for Stochastic Blockmodels (SBMs)
 Version: 0.0.0.9000
 Authors@R: 
     c(person("Somjit", "Roy",
@@ -8,7 +8,7 @@ Authors@R:
     person("Debdeep", "Pati",
     email = "debdeep@stat.tamu.edu",
     role = "aut"))
-Description: What the package does (one paragraph).
+Description: Performing goodness-of-fit tests for stochastic blockmodels used to fit network data. Among the three variants of SBMs discussed in <https://doi.org/10.1093/jrsssb/qkad084>, goodness-of-fit test has been performed for the additve version of SBMs. 
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
