@@ -22,3 +22,13 @@ blocks in undirected graphs*, *latent space models*, *variable degree
 distribution*, *dynamically evolving networks*, etc., becoming one of
 the more popular approaches to model network data in computer science,
 statistics and machine learning.
+
+[Karwa et al. (2023)](https://doi.org/10.1093/jrsssb/qkad084) addresses
+a very important aspect of *model fitting* by constructing
+goodness-of-fit tests (under finite-sample setting) for three variants
+of SBMs respectively used for modeling network data (where model
+adequacy procedures are somewhat elusive in general), viz., *Erdős-Rényi
+SBM* (ER-SBM), *Additive SBM*, and *$\beta-$SBM*, where the main idea
+revolves around a *frequentist conditional goodness-of-fit test*
+conditioned on a sufficient statistic (as well as its Bayesian
+counterpart).
