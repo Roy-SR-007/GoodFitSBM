@@ -1,0 +1,24 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  tidy = FALSE,
+  fig.align='center',
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  R.options = list(width = 200)
+)
+```
+# GoodFitSBM: Monte Carlo goodness-of-fit tests for Stochastic Blockmodels (SBMs)
+<!-- <img src="man/figures/logo.png" align="right" width="150"/> -->
+
+<!-- [![CRAN_Status_Badge](https://img.shields.io/cran/v/MatchIt?color=952100)](https://cran.r-project.org/package=lmw) [![CRAN_Downloads_Badge](https://cranlogs.r-pkg.org/badges/MatchIt?color=952100)](https://cran.r-project.org/package=lmw) -->
+------
+### Overview
