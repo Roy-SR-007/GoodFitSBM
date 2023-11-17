@@ -17,7 +17,7 @@ and *neuroscience*. SBMs being the generalization of the Erdős-Rényi
 model given by [Erdős and Rényi
 (1960)](https://doi.org/10.1515/9781400841356.38) was proposed
 originally in context of *social sciences* for directed and undirected
-graphs, whereas now it has been vastly extended and uitlized in *latent
+graphs, whereas now it has been vastly extended and utilized in *latent
 blocks in undirected graphs*, *latent space models*, *variable degree
 distribution*, *dynamically evolving networks*, etc., becoming one of
 the more popular approaches to model network data in computer science,
