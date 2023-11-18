@@ -30,5 +30,10 @@ of SBMs respectively used for modeling network data (where model
 adequacy procedures are somewhat elusive in general), viz., *Erdős-Rényi
 SBM* (ER-SBM), *Additive SBM*, and *$\beta-$SBM*, where the main idea
 revolves around a *frequentist conditional goodness-of-fit test*
-conditioned on a sufficient statistic (as well as its Bayesian
-counterpart).
+conditioned on a sufficient statistic ([Karwa et
+al. (2023)](https://doi.org/10.1093/jrsssb/qkad084) also illustrates its
+Bayesian counterpart).
+
+------------------------------------------------------------------------
+
+### Use and Related Functionalities
