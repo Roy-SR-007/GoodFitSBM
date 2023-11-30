@@ -147,7 +147,7 @@ sample_a_move = function(C, G_current) {
   else if(type == 3) {
 
     # four cycles with quadratic and cubic moves; making a call to `Get_Next_Network.R` routine
-    list_g = Get.Next.Network(graph.empty(), G_current, ed.coin = c(0, 1, 0)) # the `ed.coin` argument is not required in case of beta-SBM
+    list_g = Get.Next.Network(graph.empty(), G_current, ed.coin = c(0, 1, 0), SBM.blocks = C) # the `ed.coin` argument is not required in case of beta-SBM
     G_sample = list_g[[2]] # the bidirected graph from the `Get.Next.Network()` routine
 
   }

@@ -14,6 +14,8 @@
 # a list of two undirected igraph objects representing the move (edges to remove and add) and
 # boolean flag indicating whether the move is empty
 
+#' @import igraph
+
 Get.Move.beta.SBM = function(g, blocks, coin = c(1/2)) {
 
   # iterate through all the blocks generating a random bidirected move within
@@ -130,7 +132,7 @@ Get.Move.beta.SBM = function(g, blocks, coin = c(1/2)) {
 
           # check that number of edges between block i and block j remain constant
           g.full.i.j = Get.Induced.Subgraph(g, c(v.block[[1]], v.block[[2]]))
-          g.between.i.j = graph.difference(g.full.i.j, graph.union(g.block[[i]], g.block[[j]]))
+          g.between.i.j = igraph::graph.difference(g.full.i.j, igraph::graph.union(g.block[[i]], g.block[[j]]))
           num.g.between.i.j.edges.to.remove = length(which(get.edge.ids(g.between.i.j, as.vector(t(get.edgelist(graph.to.remove)))) > 0))
 
           num.g.between.i.j.edges.to.add = 0
@@ -182,7 +184,7 @@ Get.Move.beta.SBM = function(g, blocks, coin = c(1/2)) {
 
           # produce a move between block i and j
           g.full.i.j = Get.Induced.Subgraph(g, c(v.block[[1]], v.block[[2]]))
-          g.between.i.j = igraph::graph.difference(g.full.i.j, igraph::graph.union(g.block[[i]], igraph::g.block[[j]]))
+          g.between.i.j = igraph::graph.difference(g.full.i.j, igraph::graph.union(g.block[[i]], g.block[[j]]))
           move.between.i.j = Get.Between.Blocks.Move.beta.SBM(g.between.i.j)
           move[[1]] = igraph::graph.union(move.between.i.j[[1]], move[[1]])
           move[[2]] = igraph::graph.union(move.between.i.j[[2]], move[[2]])
