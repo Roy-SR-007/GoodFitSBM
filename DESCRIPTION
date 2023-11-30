@@ -19,3 +19,21 @@ Imports:
     igraph,
     utils,
     stats
+Collate: 
+    'Bipartite_Walk.R'
+    'Estimation_Block.R'
+    'Estimation_MLE.R'
+    'Get_Directed_Piece.R'
+    'as_arbitrary_directed.R'
+    'Get_Bidirected_Piece.R'
+    'Get_Bidirected_Move.R'
+    'Get_Within_Blocks_beta_SBM.R'
+    'Get_Directed_Move_p1_ed.R'
+    'Get_Between_Blocks_Move_beta_SBM.R'
+    'Get_Induced_Subgraph.R'
+    'Get_Move_Beta_SBM.R'
+    'Get_Next_Network.R'
+    'Sampling_Graph.R'
+    'TestStatistic_graphchi.R'
+    'GOFTest_betaSBM.R'
+    'Test.R'

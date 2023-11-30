@@ -2,3 +2,6 @@
 
 export(goftest)
 import(igraph)
+import(irlba)
+import(stats)
+import(utils)
