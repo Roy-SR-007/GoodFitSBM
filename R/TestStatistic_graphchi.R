@@ -12,6 +12,8 @@
 # Output::
 # the value for chi-sq statistics
 
+#' @import igraph
+
 graphchi = function(G, C, p_mle) {
 
   # getting graph information

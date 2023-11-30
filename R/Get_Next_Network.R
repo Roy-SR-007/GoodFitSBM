@@ -21,6 +21,8 @@
 #  2) new.bidirected.graph,
 #  3) boolean flag trivial.move
 
+#' @import igraph
+
 Get.Next.Network = function(d, b, ed.coin = c(1/3, 1/3, 1/3), beta.SBM.coin = c(1/2), SBM.blocks = NULL) {
 
   # routine checks on the blocks

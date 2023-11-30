@@ -16,6 +16,8 @@
 # undirected igraph object: the reciprocated only edges to remove
 # undirected igraph object: the reciprocated only edges to add
 
+#' @import igraph
+
 Get.Directed.Move.p1.ed = function(d, b) {
 
   dir.piece = Get.Directed.Piece(d)

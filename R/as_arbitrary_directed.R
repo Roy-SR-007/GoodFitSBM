@@ -9,6 +9,8 @@
 # Output::
 # a directed graph
 
+#' @import igraph
+
 as.arbitrary.directed = function(b) {
 
   # create a directed graph out of the edges of b

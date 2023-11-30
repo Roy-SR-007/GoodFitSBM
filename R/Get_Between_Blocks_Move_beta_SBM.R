@@ -8,6 +8,8 @@
 # Output::
 # return a list of four igraph objects; refer to the 'Get.Directed.Move.p1.ed()' routine
 
+#' @import igraph
+
 Get.Between.Blocks.Move.beta.SBM = function(g) {
 
   d = igraph::as.directed(g, mode = c("arbitrary"))

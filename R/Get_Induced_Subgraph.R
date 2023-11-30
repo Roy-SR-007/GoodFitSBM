@@ -10,6 +10,8 @@
 # Output::
 # an igraph object representing the subgraph of g induced by vertices and containing all vertices of g
 
+#' @import igraph
+
 Get.Induced.Subgraph = function(g, vertices) {
 
   if (length(vertices) < 2) {

@@ -4,6 +4,8 @@
 # this calls `Bipartite.Walk()` but first checks if edges are a match;
 # randomly direct the entire bidirected graph and calls `Get.Directed.Piece()`
 
+#' @import igraph
+
 Get.Bidirected.Piece <- function(b) {
 
   if (ecount(b) < 2) {

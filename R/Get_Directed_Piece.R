@@ -1,5 +1,7 @@
 # Get.Directed.Piece
 
+#' @import igraph
+
 Get.Directed.Piece = function(d) {
 
   # d = directed part of G.

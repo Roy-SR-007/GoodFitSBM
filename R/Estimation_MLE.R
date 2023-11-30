@@ -11,6 +11,8 @@
 # Output::
 # A MLE matrix with the MLE of the probability of edges between pairs of blocks
 
+#' @import igraph
+
 get_mle = function(G, C) {
 
   # collapse to k*k

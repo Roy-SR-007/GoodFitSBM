@@ -15,6 +15,8 @@
 # undirected igraph object: the reciprocated only edges to remove
 # undirected igraph object: the reciprocated only edges to add
 
+#' @import igraph
+
 Get.Bidirected.Move = function(d = NULL, b) {
 
   if (is.null(d)) {

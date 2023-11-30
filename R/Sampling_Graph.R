@@ -11,6 +11,8 @@
 # Output::
 # the graph after one random move
 
+#' @import igraph
+
 sample_a_move = function(C, G_current) {
 
   n = length(igraph::V(G_current)) # no. of vertices of the current graph

@@ -9,6 +9,8 @@
 
 # Output:: returns a list of edges to be added
 
+#' @import igraph
+
 Bipartite.Walk = function(edges.to.remove, simple.only = TRUE, multiplicity.bound = NULL) {
 
   #connect head of (i+1)st edge to tail of ith edge to complete a walk
