@@ -18,7 +18,8 @@ BugReports: https://github.com/Roy-SR-007/GoodFitSBM/issues
 Imports:
     igraph,
     utils,
-    stats
+    stats,
+    irlba
 Collate: 
     'Bipartite_Walk.R'
     'Estimation_Block.R'
