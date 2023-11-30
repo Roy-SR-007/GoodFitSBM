@@ -5,6 +5,8 @@
 # randomly direct the entire bidirected graph and calls `Get.Directed.Piece()`
 
 #' @import igraph
+#' @include as_arbitrary_directed.R
+#' @include Get_Directed_Piece.R
 
 Get.Bidirected.Piece <- function(b) {
 

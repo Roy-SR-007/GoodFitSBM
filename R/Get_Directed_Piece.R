@@ -1,6 +1,7 @@
 # Get.Directed.Piece
 
 #' @import igraph
+#' @include Bipartite_Walk.R
 
 Get.Directed.Piece = function(d) {
 

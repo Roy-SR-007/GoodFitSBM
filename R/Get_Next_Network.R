@@ -22,6 +22,7 @@
 #  3) boolean flag trivial.move
 
 #' @import igraph
+#' @include Get_Move_Beta_SBM.R
 
 Get.Next.Network = function(d, b, ed.coin = c(1/3, 1/3, 1/3), beta.SBM.coin = c(1/2), SBM.blocks = NULL) {
 
@@ -41,7 +42,7 @@ Get.Next.Network = function(d, b, ed.coin = c(1/3, 1/3, 1/3), beta.SBM.coin = c(
   trivial.move = move[[3]]
 
   # b (undirected) minus/deleted bidirected.to.be.removed plus/added bidirected.to.be.added
-  new.bidirected.graph = graph.union(graph.difference(b, move[[1]]), move[[2]])
+  new.bidirected.graph = igraph::graph.union(igraph::graph.difference(b, move[[1]]), move[[2]])
   new.directed.graph = d
 
   return(list(new.directed.graph, new.bidirected.graph, trivial.move))

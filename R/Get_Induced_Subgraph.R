@@ -11,17 +11,18 @@
 # an igraph object representing the subgraph of g induced by vertices and containing all vertices of g
 
 #' @import igraph
+#' @import utils
 
 Get.Induced.Subgraph = function(g, vertices) {
 
   if (length(vertices) < 2) {
 
-    return(graph.empty(n = length(vertices), directed = is.directed(g)))
+    return(igraph::graph.empty(n = length(vertices), directed = is.directed(g)))
   }
 
   pairs = utils::combn(vertices, 2)
   ei = igraph::get.edge.ids(g, pairs)
   ei = ei[ei != 0]
 
-  return(subgraph.edges(g, ei, delete.vertice = FALSE))
+  return(igraph::subgraph.edges(g, ei, delete.vertice = FALSE))
 }

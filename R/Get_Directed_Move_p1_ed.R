@@ -17,6 +17,7 @@
 # undirected igraph object: the reciprocated only edges to add
 
 #' @import igraph
+#' @include Get_Directed_Piece.R
 
 Get.Directed.Move.p1.ed = function(d, b) {
 

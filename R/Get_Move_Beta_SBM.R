@@ -15,6 +15,10 @@
 # boolean flag indicating whether the move is empty
 
 #' @import igraph
+#' @include Get_Induced_Subgraph.R
+#' @include Get_Bidirected_Move.R
+#' @include Get_Between_Blocks_Move_beta_SBM.R
+#' @include Get_Within_Blocks_beta_SBM.R
 
 Get.Move.beta.SBM = function(g, blocks, coin = c(1/2)) {
 

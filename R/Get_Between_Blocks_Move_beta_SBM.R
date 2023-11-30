@@ -9,6 +9,7 @@
 # return a list of four igraph objects; refer to the 'Get.Directed.Move.p1.ed()' routine
 
 #' @import igraph
+#' @include Get_Directed_Move_p1_ed.R
 
 Get.Between.Blocks.Move.beta.SBM = function(g) {
 

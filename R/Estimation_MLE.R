@@ -12,6 +12,7 @@
 # A MLE matrix with the MLE of the probability of edges between pairs of blocks
 
 #' @import igraph
+#' @import stats
 
 get_mle = function(G, C) {
 

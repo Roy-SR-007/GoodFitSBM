@@ -12,6 +12,7 @@
 # the graph after one random move
 
 #' @import igraph
+#' @include Get_Next_Network.R
 
 sample_a_move = function(C, G_current) {
 

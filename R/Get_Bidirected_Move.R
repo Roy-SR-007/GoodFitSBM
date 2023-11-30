@@ -16,6 +16,7 @@
 # undirected igraph object: the reciprocated only edges to add
 
 #' @import igraph
+#' @include Get_Bidirected_Piece.R
 
 Get.Bidirected.Move = function(d = NULL, b) {
 

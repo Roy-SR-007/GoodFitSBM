@@ -5,6 +5,7 @@
 # Input, Output:: refer to the `Get.Within.Blocks.Move.beta.SBM()` routine
 
 #' @import igraph
+#' @include Get_Bidirected_Move.R
 
 
 Get.Within.Blocks.Move.beta.SBM = function(g) {
