@@ -38,7 +38,6 @@ Collate:
     'TestStatistic_graphchi.R'
     'GOFTest_betaSBM.R'
     'zachary.R'
-    'Test.R'
 Depends: 
     R (>= 2.10)
 LazyData: true
