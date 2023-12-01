@@ -53,9 +53,9 @@ Consider $G$ to be a graph on $n$ nodes, $g$ being its realization. It is assume
 
 An *exponential family random graph model (ERGM)* assumes that the probability of observing a graph $\mathbf{g}$ depends only on a vector of sufficient statistics, $T(\mathbf{g})$, i.e., the probability of observing a given network $G=\mathbf{g}$ is,
 
-$$
+$
 \mathbb{P}_{\theta}(G=\mathbf{g}) = \frac{exp{\langle T(\mathbf{g}), \theta\rangle}}{\psi(\theta)}
-$$
+$
 where $\psi(\theta) = \sum_{\mathbf{g}}exp(\langle T(\mathbf{g}), \theta\rangle)$ is the normalizing constant, $\theta \in \Theta$ is a vector of natural parameters, and $T(\mathbf{g})$ is the vector of minimal sufficient statistics for the underlying model. Let $p_{uv}$ be the probability of an edge between node $u$ and node $v$, where it is assumed that, $g_{uv}\sim \mbox{Bernoulli}(p_{uv})$
 
 
