@@ -177,29 +177,42 @@ To install and load-up the (development version 0.0.1) package
 Repo](https://github.com/Roy-SR-007/GoodFitSBM), run the following
 commands.
 
-``` r1
+``` r
 # install.packages("devtools")
 # install.packages("remotes")
 remotes::install_github("Roy-SR-007/GoodFitSBM")
+```
 
+    #> 
+    #> ── R CMD build ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    #>          checking for file 'C:\Users\sroy_123\AppData\Local\Temp\RtmpWOmaj9\remotes5a404c7676f2\Roy-SR-007-GoodFitSBM-d745a61/DESCRIPTION' ...  ✔  checking for file 'C:\Users\sroy_123\AppData\Local\Temp\RtmpWOmaj9\remotes5a404c7676f2\Roy-SR-007-GoodFitSBM-d745a61/DESCRIPTION'
+    #>       ─  preparing 'GoodFitSBM':
+    #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
+    #>       ─  checking for LF line-endings in source and make files and shell scripts
+    #>       ─  checking for empty or unneeded directories
+    #>       ─  building 'GoodFitSBM_0.0.1.tar.gz'
+    #>      
+    #> 
+
+``` r
 library(GoodFitSBM)
 ```
 
 #### Example 1: Sampling a Graph using `sample_a_move()`
 
 Here we consider sampling (Markov move) a graph (under the beta-SBM
-framework) with a total of $n=15$ nodes, with $k = 3$ blocks of sizes
-$5$ each.
+framework) with a total of $n=150$ nodes, with $k = 3$ blocks of sizes
+$50$ each.
 
-``` r2
+``` r
 library(igraph)
 RNGkind(sample.kind = "Rounding")
 set.seed(1729)
 
 # We model a network with 3 even classes
-n1 = 5
-n2 = 5
-n3 = 5
+n1 = 50
+n2 = 50
+n3 = 50
 
 # Generating block assignments for each of the nodes
 n = n1 + n2 + n3
@@ -234,10 +247,351 @@ G = igraph::graph_from_adjacency_matrix(adjsymm, mode = "undirected", weighted =
 
 # plotting the current graph
 plot(G, main = "The current graph")
+```
 
+<img src="man/figures/README-2-1.png" style="display: block; margin: auto;" />
+
+``` r
 # sampling a Markov move for the beta SBM
 G_sample = sample_a_move(class, G)
 
 # plotting the sampled graph
 plot(G_sample, main = "The sampled graph after one Markov move for beta SBM")
 ```
+
+<img src="man/figures/README-2-2.png" style="display: block; margin: auto;" />
+
+#### Example 2: Estimating Edge Probabilities using `get_mle()`
+
+Here we determine the MLEs of the edge probabilities
+$(\widehat{q}_{uv})$ for a graph with $k=3$ blocks each of size $2$, and
+having a total of $n=6$ nodes.
+
+``` r
+library(igraph)
+RNGkind(sample.kind = "Rounding")
+set.seed(1729)
+
+# We model a network with 3 even classes
+n1 = 2
+n2 = 2
+n3 = 2
+
+# Generating block assignments for each of the nodes
+n = n1 + n2 + n3
+class = rep(c(1, 2, 3), c(n1, n2, n3))
+
+# Generating the adjacency matrix of the network
+# Generate the matrix of connection probabilities
+cmat = matrix(
+  c(
+    30, 0.50, 0.50,
+    0.50, 30, 0.50,
+    0.50, 0.50, 30
+  ),
+  ncol = 3,
+  byrow = TRUE
+)
+pmat = cmat / n
+
+# Creating the n x n adjacency matrix
+adj <- matrix(0, n, n)
+for (i in 2:n) {
+  for (j in 1:(i - 1)) {
+    p = pmat[class[i], class[j]] # We find the probability of connection with the weights
+    adj[i, j] = rbinom(1, 1, p) # We include the edge with probability p
+  }
+}
+
+adjsymm = adj + t(adj)
+
+# graph from the adjacency matrix
+G = igraph::graph_from_adjacency_matrix(adjsymm, mode = "undirected", weighted = NULL)
+
+# mle of the edge probabilities
+get_mle(G, class)
+```
+
+    #> 2 iterations: deviation 5.551115e-16
+
+    #>            [,1]       [,2]       [,3]       [,4]       [,5]       [,6]
+    #> [1,] 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333
+    #> [2,] 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333
+    #> [3,] 0.08333333 0.08333333 0.00000000 0.00000000 0.08333333 0.08333333
+    #> [4,] 0.08333333 0.08333333 0.00000000 0.00000000 0.08333333 0.08333333
+    #> [5,] 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333
+    #> [6,] 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333
+
+#### Example 3: Computing the chi-square test statistic value using `graphchi()`
+
+Computing the chi-square test statistic value for a network with a total
+of $n=9$ nodes, and $k=3$ blocks of size $3$ each.
+
+``` r
+library(igraph)
+RNGkind(sample.kind = "Rounding")
+set.seed(1729)
+
+# We model a network with 3 even classes
+n1 = 3
+n2 = 3
+n3 = 3
+
+# Generating block assignments for each of the nodes
+n = n1 + n2 + n3
+class = rep(c(1, 2, 3), c(n1, n2, n3))
+
+# Generating the adjacency matrix of the network
+# Generate the matrix of connection probabilities
+cmat = matrix(
+  c(
+    30, 0.5, 0.5,
+    0.5, 30, 0.5,
+    0.5, 0.5, 30
+  ),
+  ncol = 3,
+  byrow = TRUE
+)
+pmat = cmat / n
+
+# Creating the n x n adjacency matrix
+adj <- matrix(0, n, n)
+for (i in 2:n) {
+  for (j in 1:(i - 1)) {
+    p = pmat[class[i], class[j]] # We find the probability of connection with the weights
+    adj[i, j] = rbinom(1, 1, p) # We include the edge with probability p
+  }
+}
+
+adjsymm = adj + t(adj)
+
+# graph from the adjacency matrix
+G = igraph::graph_from_adjacency_matrix(adjsymm, mode = "undirected", weighted = NULL)
+
+# mle of the edge probabilities
+p.hat = get_mle(G, class)
+```
+
+    #> 2 iterations: deviation 6.661338e-16
+
+``` r
+# chi-square test statistic values
+graphchi(G, class, p.hat)
+```
+
+    #> [1] 16.66667
+
+#### Main Example: `goftest()` in action
+
+- **Instance 1**: Here we consider testing for the goodness-of-fit to
+  the beta-SBM modeling a graph (network) with $k=3$ blocks of size $50$
+  each, and a total of $n=150$ nodes.
+
+``` r
+library(igraph)
+RNGkind(sample.kind = "Rounding")
+set.seed(1729)
+
+# We model a network with 3 even classes
+n1 = 50
+n2 = 50
+n3 = 50
+
+# Generating block assignments for each of the nodes
+n = n1 + n2 + n3
+class = rep(c(1, 2, 3), c(n1, n2, n3))
+
+# Generating the adjacency matrix of the network
+# Generate the matrix of connection probabilities
+cmat = matrix(
+  c(
+    30, 0.05, 0.05,
+    0.05, 30, 0.05,
+    0.05, 0.05, 30
+  ),
+  ncol = 3,
+  byrow = TRUE
+)
+pmat = cmat / n
+
+# Creating the n x n adjacency matrix
+adj <- matrix(0, n, n)
+for (i in 2:n) {
+  for (j in 1:(i - 1)) {
+    p = pmat[class[i], class[j]] # We find the probability of connection with the weights
+    adj[i, j] = rbinom(1, 1, p) # We include the edge with probability p
+  }
+}
+
+adjsymm = adj + t(adj)
+
+# When class assignment is known
+out = goftest(adjsymm, C = class, numGraphs = 100)
+```
+
+    #> 2 iterations: deviation 1.580815e-10
+
+``` r
+chi_sq_seq = out$statistic
+pvalue = out$p.value
+print(pvalue)
+```
+
+    #> [1] 0.2
+
+``` r
+# Plotting histogram of the sequence of the test statistics
+hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
+abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
+```
+
+<img src="man/figures/README-5-1.png" style="display: block; margin: auto;" />
+
+From the $p-$value obtained viz., $p=0.20 >> \alpha = 0.05$, we fail to
+the reject the null of a good fit of the given (observed) network to the
+beta-SBM, at level $\alpha = 0.05$.
+
+- Instance 2: Here we consider testing for the goodness-of-fit to the
+  beta-SBM modeling a graph (network) with $k=3$ blocks with sizes $30$,
+  $20$, and $50$, i.e., with a total of $n=100$ nodes.
+
+``` r
+library(igraph)
+library(igraph)
+RNGkind(sample.kind = "Rounding")
+set.seed(1729)
+
+# We model a network with 3 even classes
+n1 = 30
+n2 = 20
+n3 = 50
+
+# Generating block assignments for each of the nodes
+n = n1 + n2 + n3
+class = rep(c(1, 2, 3), c(n1, n2, n3))
+
+# Generating the adjacency matrix of the network
+# Generate the matrix of connection probabilities
+cmat = matrix(
+  c(
+    30, 0.05, 0.05,
+    0.05, 30, 0.05,
+    0.05, 0.05, 30
+  ),
+  ncol = 3,
+  byrow = TRUE
+)
+pmat = cmat / n
+
+# Creating the n x n adjacency matrix
+adj <- matrix(0, n, n)
+for (i in 2:n) {
+  for (j in 1:(i - 1)) {
+    p = pmat[class[i], class[j]] # We find the probability of connection with the weights
+    adj[i, j] = rbinom(1, 1, p) # We include the edge with probability p
+  }
+}
+
+adjsymm = adj + t(adj)
+
+# When class assignment is known
+out = goftest(adjsymm, C = class, numGraphs = 100)
+```
+
+    #> 2 iterations: deviation 3.353762e-11
+
+``` r
+chi_sq_seq = out$statistic
+pvalue = out$p.value
+print(pvalue)
+```
+
+    #> [1] 0.73
+
+``` r
+# Plotting histogram of the sequence of the test statistics
+hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
+abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
+```
+
+<img src="man/figures/README-6-1.png" style="display: block; margin: auto;" />
+
+Observe that, the $p-$value obtained is much higher as compared to the
+previous instance viz., $p=0.73 >>> \alpha = 0.05$, hence we fail to the
+reject the null of a good fit of the given (observed) network to the
+beta-SBM, at level $\alpha = 0.05$.
+
+#### Application to Real Datasets: Zachary’s Karate Club Data
+
+*Zachary’s Karate Club Data* is a classic, well-studied social network
+of friendships between 34 members of a Karate club at a US university,
+collected by Wayne Zachary in 1977 ([Zachary
+(1977)](http://vlado.fmf.uni-lj.si/pub/networks/data/Ucinet/UciData.htm#zachary)).
+
+Here, we consider fitting the beta-SBM model with $k = 2$ blocks, each
+with sizes $10$ and $24$ respectively, i.e., a total of $n=34$ nodes.
+
+``` r
+library(igraph)
+
+set.seed(334003213)
+
+data("zachary")
+
+d = zachary # the Zachary's Karate Club data set
+
+# the adjacency matrix
+A_zachary = as.matrix(d[1:34, ])
+colnames(A_zachary) = 1:34
+
+# obtaining the graph from the adjacency matrix above
+g_zachary = igraph::graph_from_adjacency_matrix(A_zachary, mode = "undirected", weighted = NULL)
+
+# plotting the graph (network) obtained
+plot(g_zachary,
+main = "Network (Graph) for the Zachary's Karate Club data set; reference clustering")
+```
+
+<img src="man/figures/README-7-1.png" style="display: block; margin: auto;" />
+
+``` r
+# block assignments
+K = 2 # no. of blocks
+
+n1 = 10
+n2 = 24
+n = n1 + n2
+
+# known class assignments
+class = rep(c(1, 2), c(n1, n2))
+# goodness-of-fit tests for the Zachary's Karate Club data set
+out_zachary = goftest(A_zachary, C = class, numGraphs = 100)
+```
+
+    #> 2 iterations: deviation 3.410605e-13
+
+``` r
+chi_sq_seq = out_zachary$statistic
+pvalue = out_zachary$p.value
+print(pvalue)
+```
+
+    #> [1] 0
+
+``` r
+# Plotting histogram of the sequence of the test statistics
+hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
+abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
+```
+
+<img src="man/figures/README-7-2.png" style="display: block; margin: auto;" />
+
+Note that, from the $p-$value obtained as well as the observed value of
+the chi-square test statistic (plotted histogram), we reject the null of
+a good fit, i.e., the data (network/graph) does not fit the beta-SBM at
+all; quite similar to the lines of conclusion as claimed by ([Karwa et
+al. (2023)](https://doi.org/10.1093/jrsssb/qkad084)) under the framework
+of an ER-SBM, see Section 7.1.

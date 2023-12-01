@@ -73,6 +73,7 @@ print(pvalue)
 # Plotting histogram of the sequence of the test statistics
 hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
 abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
 
 # Example 2
 
@@ -122,6 +123,7 @@ print(pvalue)
 # Plotting histogram of the sequence of the test statistics
 hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
 abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
 
 # Application on real dataset: Testing on the Zachary's Karate Club Data
 
