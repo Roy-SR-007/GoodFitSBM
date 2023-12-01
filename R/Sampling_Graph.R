@@ -1,20 +1,86 @@
-# sample_a_move
 
-# underlying model: beta SBM
-
-# objective :: to sample a graph in the same fiber
-
-# Input::
-# G_current: `igraph` object which is an undirected graph with no self loop
-# C: vector of block assignments of size n; block assignments varies over 1 to k
-
-# Output::
-# the graph after one random move
-
+#'
+#' @title Sampling a graph through a Markov move (basis) for beta SBM
+#'
+#' @description `sample_a_move` to sample a graph in the same fiber; sampling according to the beta SBM (Karwa et al. (2023))
+#'
+#' @param C a positive integer vector of size n for block assignments of each node; from 1 to K (no of blocks)
+#' @param G_current an igraph object which is an undirected graph with no self loop
+#'
+#' @return A graph
+#' \item{sampled graph}{the sampled graph after one move as per the beta SBM}
+#'
 #' @import igraph
 #' @include Get_Next_Network.R
+#'
+#' @export
+#'
+#' @examples
+#'
+#' RNGkind(sample.kind = "Rounding")
+#' set.seed(1729)
+#'
+#' # We model a network with 3 even classes
+#' n1 = 50
+#' n2 = 50
+#' n3 = 50
+#'
+#' # Generating block assignments for each of the nodes
+#' n = n1 + n2 + n3
+#' class = rep(c(1, 2, 3), c(n1, n2, n3))
+#'
+#' # Generating the adjacency matrix of the network
+#' # Generate the matrix of connection probabilities
+#' cmat = matrix(
+#'   c(
+#'     30, 0.05, 0.05,
+#'     0.05, 30, 0.05,
+#'     0.05, 0.05, 30
+#'   ),
+#'   ncol = 3,
+#'   byrow = TRUE
+#' )
+#' pmat = cmat / n
+#'
+#' # Creating the n x n adjacency matrix
+#' adj <- matrix(0, n, n)
+#' for (i in 2:n) {
+#'   for (j in 1:(i - 1)) {
+#'     p = pmat[class[i], class[j]] # We find the probability of connection with the weights
+#'     adj[i, j] = rbinom(1, 1, p) # We include the edge with probability p
+#'   }
+#' }
+#'
+#' adjsymm = adj + t(adj)
+#'
+#' # graph from the adjacency matrix
+#' G = igraph::graph_from_adjacency_matrix(adjsymm, mode = "undirected", weighted = NULL)
+#'
+#' # sampling a Markov move for the beta SBM
+#' G_sample = sample_a_move(class, G)
+#'
+#' # plotting the sampled graph
+#' plot(G_sample, main = "The sampled graph after one Markov move for beta SBM")
+#'
+#' @references
+#' Karwa et al. (2023). "Monte Carlo goodness-of-fit tests for degree corrected and related stochastic blockmodels",
+#' \emph{Journal of the Royal Statistical Society Series B: Statistical Methodology},
+#' <https://doi.org/10.1093/jrsssb/qkad084>
 
 sample_a_move = function(C, G_current) {
+
+  # sample_a_move
+
+  # underlying model: beta SBM
+
+  # objective :: to sample a graph in the same fiber
+
+  # Input::
+  # G_current: `igraph` object which is an undirected graph with no self loop
+  # C: vector of block assignments of size n; block assignments varies over 1 to k
+
+  # Output::
+  # the graph after one random move
 
   n = length(igraph::V(G_current)) # no. of vertices of the current graph
 
