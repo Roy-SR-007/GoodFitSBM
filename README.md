@@ -7,6 +7,14 @@
 
 ## <!-- [![CRAN_Status_Badge](https://img.shields.io/cran/v/MatchIt?color=952100)](https://cran.r-project.org/package=lmw) [![CRAN_Downloads_Badge](https://cranlogs.r-pkg.org/badges/MatchIt?color=952100)](https://cran.r-project.org/package=lmw) -->
 
+### NEWS
+
+GoodFitSBM (Version 1): `GoodFitSBM` comprises functionality that
+performs the *goodness-of-fit* test for an **beta-SBM** (one of the
+three variants of SBMs discussed in [Karwa et
+al. (2023)](https://doi.org/10.1093/jrsssb/qkad084) used for modelling
+network data.
+
 ### Overview
 
 *Stochastic blockmodels* (SBMs) contributed to the theoretical and
