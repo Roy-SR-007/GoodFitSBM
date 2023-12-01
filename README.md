@@ -90,9 +90,7 @@ probability of observing a graph $\mathbf{g}$ depends only on a vector
 of sufficient statistics, $T(\mathbf{g})$, i.e., the probability of
 observing a given network $G=\mathbf{g}$ is,
 
-$$
-\mathbb{P}_{\theta}(G=\mathbf{g}) = \frac{exp{\langle T(\mathbf{g}), \theta\rangle}}{\psi(\theta)}
-$$ where
+\$ \_{}(G=) = \$ where
 $\psi(\theta) = \sum_{\mathbf{g}}exp(\langle T(\mathbf{g}), \theta\rangle)$
 is the normalizing constant, $\theta \in \Theta$ is a vector of natural
 parameters, and $T(\mathbf{g})$ is the vector of minimal sufficient
