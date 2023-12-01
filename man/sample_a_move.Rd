@@ -71,3 +71,6 @@ Karwa et al. (2023). "Monte Carlo goodness-of-fit tests for degree corrected and
 \emph{Journal of the Royal Statistical Society Series B: Statistical Methodology},
 \url{https://doi.org/10.1093/jrsssb/qkad084}
 }
+\seealso{
+\code{\link[=goftest]{goftest()}} performs the goodness-of-fit test for the beta SBM, where graphs are being sampled
+}

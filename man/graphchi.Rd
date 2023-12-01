@@ -67,3 +67,6 @@ p.hat = get_mle(G, class)
 # chi-square test statistic values
 graphchi(G, class, p.hat)
 }
+\seealso{
+\code{\link[=goftest]{goftest()}} performs the goodness-of-fit test for the beta SBM, where the values of the chi-square test statistics are required
+}
