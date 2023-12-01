@@ -1,6 +1,25 @@
 # Usual Testing of goodness-of-fit test in case of beta SBM, for modeling network data
 
 #' @import igraph
+#'
+#' @include Bipartite_Walk.R
+#' @include Estimation_Block.R
+#' @include Estimation_MLE.R
+#' @include Get_Directed_Piece.R
+#' @include as_arbitrary_directed.R
+#' @include Get_Bidirected_Piece.R
+#' @include Get_Bidirected_Move.R
+#' @include Get_Within_Blocks_beta_SBM.R
+#' @include Get_Directed_Move_p1_ed.R
+#' @include Get_Between_Blocks_Move_beta_SBM.R
+#' @include Get_Induced_Subgraph.R
+#' @include Get_Move_Beta_SBM.R
+#' @include Get_Next_Network.R
+#' @include Sampling_Graph.R
+#' @include TestStatistic_graphchi.R
+#' @include GOFTest_betaSBM.R
+#' @include zachary.R
+
 
 # Test 1
 
@@ -48,10 +67,11 @@ chi_sq_seq = out$statistic
 pvalue = out$p.value
 print(pvalue)
 
+# uncomment to see plots
 # Plotting histogram of the sequence of the test statistics
-hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
-abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
-legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
+# hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
+# abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+# legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
 
 
 # Test 2
@@ -100,10 +120,11 @@ chi_sq_seq = out$statistic
 pvalue = out$p.value
 print(pvalue)
 
+# uncomment to see plots
 # Plotting histogram of the sequence of the test statistics
-hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
-abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
-legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
+# hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
+# abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+# legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
 
 # Testing on the Zachary's Karate Club Data
 
@@ -139,6 +160,7 @@ legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
 #pvalue = out_zachary$p.value
 #print(pvalue)
 
+# uncomment to see plots
 # Plotting histogram of the sequence of the test statistics
 #hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
 #abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network

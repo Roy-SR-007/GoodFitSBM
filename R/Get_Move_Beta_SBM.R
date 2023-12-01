@@ -137,10 +137,10 @@ Get.Move.beta.SBM = function(g, blocks, coin = c(1/2)) {
           # check that number of edges between block i and block j remain constant
           g.full.i.j = Get.Induced.Subgraph(g, c(v.block[[1]], v.block[[2]]))
           g.between.i.j = igraph::graph.difference(g.full.i.j, igraph::graph.union(g.block[[i]], g.block[[j]]))
-          num.g.between.i.j.edges.to.remove = length(which(get.edge.ids(g.between.i.j, as.vector(t(get.edgelist(graph.to.remove)))) > 0))
+          num.g.between.i.j.edges.to.remove = length(which(igraph::get.edge.ids(g.between.i.j, as.vector(t(igraph::get.edgelist(graph.to.remove)))) > 0))
 
           num.g.between.i.j.edges.to.add = 0
-          edges.to.add = get.edgelist(graph.to.add)
+          edges.to.add = igraph::get.edgelist(graph.to.add)
 
           for (l in 1:igraph::ecount(graph.to.add)) {
 

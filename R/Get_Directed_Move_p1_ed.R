@@ -43,7 +43,7 @@ Get.Directed.Move.p1.ed = function(d, b) {
     # check that edges to add does not conflict with d-edges to remove in any direction
     if (!igraph::ecount(igraph::graph.intersection(igraph::as.undirected(igraph::graph.difference(d, g.remove)), igraph::as.undirected(g.add))) == 0){
 
-      return(list(graph.empty(vcount(d)),graph.empty(vcount(d))))
+      return(list(igraph::graph.empty(igraph::vcount(d)), igraph::graph.empty(igraph::vcount(d))))
 
     }
 

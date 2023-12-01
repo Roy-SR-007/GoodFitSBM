@@ -13,6 +13,8 @@
 #' \item{statistic}{the values of the chi-square test statistics on each sampled graph}
 #' \item{p.value}{the p-value for the test}
 #'
+#' @import igraph
+#'
 #' @include Estimation_MLE.R
 #' @include TestStatistic_graphchi.R
 #' @include Sampling_Graph.R

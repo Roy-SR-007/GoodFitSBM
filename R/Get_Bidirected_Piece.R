@@ -10,7 +10,7 @@
 
 Get.Bidirected.Piece <- function(b) {
 
-  if (ecount(b) < 2) {
+  if (igraph::ecount(b) < 2) {
 
     return(NULL)
 

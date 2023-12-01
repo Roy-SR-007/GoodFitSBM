@@ -21,7 +21,7 @@ sample_a_move = function(C, G_current) {
   G_comp = igraph::graph.complementer(G_current, loops=FALSE) # complement graph of the current graph
 
   # assign the attributes to the graph
-  igraph::V(G_current)$block_asgn = C
+  # igraph::V(G_current)$block_asgn = C
   num_blocks = length(unique(C)) # no. of blocks
 
   # label edges based on the node attributes

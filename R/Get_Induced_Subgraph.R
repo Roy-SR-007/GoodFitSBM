@@ -17,7 +17,7 @@ Get.Induced.Subgraph = function(g, vertices) {
 
   if (length(vertices) < 2) {
 
-    return(igraph::graph.empty(n = length(vertices), directed = is.directed(g)))
+    return(igraph::graph.empty(n = length(vertices), directed = igraph::is.directed(g)))
   }
 
   pairs = utils::combn(vertices, 2)

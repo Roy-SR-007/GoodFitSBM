@@ -33,7 +33,7 @@ get_mle = function(G, C) {
 
   }
 
-  fm = loglin(table_slice, list(c(3)), fit=TRUE, start = start_table) # log-linear model for the cell-probabilities
+  fm = stats::loglin(table_slice, list(c(3)), fit=TRUE, start = start_table) # log-linear model for the cell-probabilities
   largemle = fm$fit
 
   mleMatr = matrix(0, nrow = n, ncol = n)
