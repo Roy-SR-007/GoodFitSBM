@@ -10,7 +10,7 @@
 # cluster: a vector of size n representing block assignment for each node; values are 1 to K i.e, no of cluster
 
 #' @import irlba
-#' @import stats
+#' @importFrom stats kmeans
 
 block_est = function (A, K)
 {

@@ -15,14 +15,25 @@
 # undirected igraph object: the reciprocated only edges to remove
 # undirected igraph object: the reciprocated only edges to add
 
-#' @import igraph
+#' @importFrom igraph graph.empty
+#' @importFrom igraph vcount
+#' @importFrom igraph graph
+#' @importFrom igraph ecount
+#' @importFrom igraph graph.intersection
+#' @importFrom igraph graph.difference
+#' @importFrom igraph as.directed
+#' @importFrom igraph is.simple
+#' @importFrom igraph graph.union
+#' @importFrom igraph get.edges
+#' @importFrom igraph as.undirected
+#' @importFrom igraph get.edgelist
 #' @include Get_Bidirected_Piece.R
 
 Get.Bidirected.Move = function(d = NULL, b) {
 
   if (is.null(d)) {
 
-    d = igraph::graph.empty(vcount(b))
+    d = igraph::graph.empty(igraph::vcount(b))
 
   }
 
@@ -30,19 +41,19 @@ Get.Bidirected.Move = function(d = NULL, b) {
 
   if (is.null(bidir.piece[[1]])) {
 
-    return(list(igraph::graph.empty(vcount(b), directed = FALSE), igraph::graph.empty(vcount(b), directed = FALSE)))
+    return(list(igraph::graph.empty(igraph::vcount(b), directed = FALSE), igraph::graph.empty(igraph::vcount(b), directed = FALSE)))
 
   }
   else {
 
     # finally, check:
-    g.add = igraph::graph(bidir.piece[[2]], n = vcount(b), directed = FALSE)
-    g.remove = igraph::graph(bidir.piece[[1]], n = vcount(b),  directed = FALSE)
+    g.add = igraph::graph(bidir.piece[[2]], n = igraph::vcount(b), directed = FALSE)
+    g.remove = igraph::graph(bidir.piece[[1]], n = igraph::vcount(b),  directed = FALSE)
 
     # (1) edges to add makes a simple graph; this can happen if more than one partitions
     if (!igraph::is.simple(g.add)) {
 
-      return(list(igraph::graph.empty(vcount(b), directed = FALSE), igraph::graph.empty(vcount(b), directed = FALSE)))
+      return(list(igraph::graph.empty(igraph::vcount(b), directed = FALSE), igraph::graph.empty(igraph::vcount(b), directed = FALSE)))
 
     }
 

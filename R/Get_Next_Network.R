@@ -21,7 +21,9 @@
 #  2) new.bidirected.graph,
 #  3) boolean flag trivial.move
 
-#' @import igraph
+#' @importFrom igraph vcount
+#' @importFrom igraph graph.union
+#' @importFrom igraph graph.difference
 #' @include Get_Move_Beta_SBM.R
 
 Get.Next.Network = function(d, b, ed.coin = c(1/3, 1/3, 1/3), beta.SBM.coin = c(1/2), SBM.blocks = NULL) {
@@ -31,7 +33,7 @@ Get.Next.Network = function(d, b, ed.coin = c(1/3, 1/3, 1/3), beta.SBM.coin = c(
 
     stop("beta.SBM model requires a non-empty vector SBM.blocks input." )
   }
-  else if (length(SBM.blocks) != vcount(b)) {
+  else if (length(SBM.blocks) != igraph::vcount(b)) {
 
     stop("Get.Next.Network error: SBM.blocks must be same length as number of vertices in b.")
 

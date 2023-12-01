@@ -13,7 +13,21 @@
 #' \item{statistic}{the values of the chi-square test statistics on each sampled graph}
 #' \item{p.value}{the p-value for the test}
 #'
-#' @import igraph
+#' @importFrom igraph graph.empty
+#' @importFrom igraph vcount
+#' @importFrom igraph graph
+#' @importFrom igraph ecount
+#' @importFrom igraph graph.intersection
+#' @importFrom igraph graph.difference
+#' @importFrom igraph as.directed
+#' @importFrom igraph is.simple
+#' @importFrom igraph is.directed
+#' @importFrom igraph graph.union
+#' @importFrom igraph get.edges
+#' @importFrom igraph get.edge.ids
+#' @importFrom igraph as.undirected
+#' @importFrom igraph get.edgelist
+#' @importFrom igraph subgraph.edges
 #'
 #' @include Estimation_MLE.R
 #' @include TestStatistic_graphchi.R
@@ -125,6 +139,8 @@
 #' # Application on real dataset: Testing on the Zachary's Karate Club Data
 #'
 #' set.seed(100000)
+#'
+#' data("zachary")
 #'
 #' d = zachary # the Zachary's Karate Club data set
 #'

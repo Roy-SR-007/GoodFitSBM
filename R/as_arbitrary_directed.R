@@ -9,7 +9,12 @@
 # Output::
 # a directed graph
 
-#' @import igraph
+#' @importFrom igraph graph
+#' @importFrom igraph get.edges
+#' @importFrom igraph ecount
+#' @importFrom igraph get.edgelist
+#' @importFrom igraph graph.union
+#' @importFrom igraph graph.difference
 
 as.arbitrary.directed = function(b) {
 

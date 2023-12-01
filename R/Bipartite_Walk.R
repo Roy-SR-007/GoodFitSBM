@@ -9,7 +9,8 @@
 
 # Output:: returns a list of edges to be added
 
-#' @import igraph
+#' @importFrom igraph graph
+#' @importFrom igraph is.simple
 
 Bipartite.Walk = function(edges.to.remove, simple.only = TRUE, multiplicity.bound = NULL) {
 

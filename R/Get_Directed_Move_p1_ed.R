@@ -16,7 +16,18 @@
 # undirected igraph object: the reciprocated only edges to remove
 # undirected igraph object: the reciprocated only edges to add
 
-#' @import igraph
+#' @importFrom igraph graph.empty
+#' @importFrom igraph vcount
+#' @importFrom igraph graph
+#' @importFrom igraph ecount
+#' @importFrom igraph graph.intersection
+#' @importFrom igraph graph.difference
+#' @importFrom igraph as.directed
+#' @importFrom igraph is.simple
+#' @importFrom igraph graph.union
+#' @importFrom igraph get.edges
+#' @importFrom igraph as.undirected
+#' @importFrom igraph get.edgelist
 #' @include Get_Directed_Piece.R
 
 Get.Directed.Move.p1.ed = function(d, b) {

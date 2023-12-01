@@ -4,12 +4,13 @@
 
 # Input, Output:: refer to the `Get.Within.Blocks.Move.beta.SBM()` routine
 
-#' @import igraph
+#' @importFrom igraph graph.empty
+#' @importFrom igraph vcount
 #' @include Get_Bidirected_Move.R
 
 
 Get.Within.Blocks.Move.beta.SBM = function(g) {
 
-  return (Get.Bidirected.Move(igraph::graph.empty(vcount(g)), g))
+  return (Get.Bidirected.Move(igraph::graph.empty(igraph::vcount(g)), g))
 
 }

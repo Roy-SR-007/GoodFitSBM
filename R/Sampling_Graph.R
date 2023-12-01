@@ -10,7 +10,24 @@
 #' @return A graph
 #' \item{sampled graph}{the sampled graph after one move as per the beta SBM}
 #'
-#' @import igraph
+#' @importFrom igraph graph.empty
+#' @importFrom igraph vcount
+#' @importFrom igraph graph
+#' @importFrom igraph ecount
+#' @importFrom igraph graph.intersection
+#' @importFrom igraph graph.difference
+#' @importFrom igraph as.directed
+#' @importFrom igraph is.simple
+#' @importFrom igraph is.directed
+#' @importFrom igraph graph.union
+#' @importFrom igraph get.edges
+#' @importFrom igraph get.edge.ids
+#' @importFrom igraph as.undirected
+#' @importFrom igraph get.edgelist
+#' @importFrom igraph subgraph.edges
+#' @importFrom igraph E
+#' @importFrom igraph V
+#' @importFrom igraph graph.complementer
 #' @include Get_Next_Network.R
 #'
 #' @export

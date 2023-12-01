@@ -10,8 +10,22 @@
 # Output::
 # an igraph object representing the subgraph of g induced by vertices and containing all vertices of g
 
-#' @import igraph
-#' @import utils
+#' @importFrom igraph graph.empty
+#' @importFrom igraph vcount
+#' @importFrom igraph graph
+#' @importFrom igraph ecount
+#' @importFrom igraph graph.intersection
+#' @importFrom igraph graph.difference
+#' @importFrom igraph as.directed
+#' @importFrom igraph is.simple
+#' @importFrom igraph is.directed
+#' @importFrom igraph graph.union
+#' @importFrom igraph get.edges
+#' @importFrom igraph get.edge.ids
+#' @importFrom igraph as.undirected
+#' @importFrom igraph get.edgelist
+#' @importFrom igraph subgraph.edges
+#' @importFrom utils combn
 
 Get.Induced.Subgraph = function(g, vertices) {
 

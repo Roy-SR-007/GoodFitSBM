@@ -14,7 +14,22 @@
 # a list of two undirected igraph objects representing the move (edges to remove and add) and
 # boolean flag indicating whether the move is empty
 
-#' @import igraph
+#' @importFrom igraph graph.empty
+#' @importFrom igraph vcount
+#' @importFrom igraph graph
+#' @importFrom igraph ecount
+#' @importFrom igraph graph.intersection
+#' @importFrom igraph graph.difference
+#' @importFrom igraph as.directed
+#' @importFrom igraph is.simple
+#' @importFrom igraph is.directed
+#' @importFrom igraph graph.union
+#' @importFrom igraph get.edges
+#' @importFrom igraph get.edge.ids
+#' @importFrom igraph as.undirected
+#' @importFrom igraph get.edgelist
+#' @importFrom igraph subgraph.edges
+#' @importFrom stats runif
 #' @include Get_Induced_Subgraph.R
 #' @include Get_Bidirected_Move.R
 #' @include Get_Between_Blocks_Move_beta_SBM.R

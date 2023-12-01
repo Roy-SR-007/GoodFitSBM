@@ -1,6 +1,7 @@
 # Get.Directed.Piece
 
-#' @import igraph
+#' @importFrom igraph ecount
+#' @importFrom igraph get.edges
 #' @include Bipartite_Walk.R
 
 Get.Directed.Piece = function(d) {
@@ -16,7 +17,7 @@ Get.Directed.Piece = function(d) {
     subset.size = 2
 
   }
-  else if (ecount(d) > 2) {
+  else if (igraph::ecount(d) > 2) {
 
     subset.size = sample(2:igraph::ecount(d), 1) # this is a random integer
     random.edge.indices = sample(1:(igraph::ecount(d)), subset.size)

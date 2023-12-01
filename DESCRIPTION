@@ -1,6 +1,6 @@
 Package: GoodFitSBM
 Title: Monte Carlo goodness-of-fit tests for Stochastic Blockmodels (SBMs)
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     c(person("Somjit", "Roy",
     email = "sroy_123@tamu.edu", 
@@ -16,9 +16,9 @@ RoxygenNote: 7.2.3
 URL: https://github.com/Roy-SR-007/GoodFitSBM
 BugReports: https://github.com/Roy-SR-007/GoodFitSBM/issues
 Imports:
+    stats,
     igraph,
     utils,
-    stats,
     irlba
 Collate: 
     'Bipartite_Walk.R'

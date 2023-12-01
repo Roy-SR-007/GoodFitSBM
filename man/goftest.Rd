@@ -127,6 +127,8 @@ abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the o
 
 set.seed(100000)
 
+data("zachary")
+
 d = zachary # the Zachary's Karate Club data set
 
 # the adjacency matrix
