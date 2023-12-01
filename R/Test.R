@@ -51,6 +51,7 @@ print(pvalue)
 # Plotting histogram of the sequence of the test statistics
 hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
 abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
 
 
 # Test 2
@@ -68,7 +69,7 @@ class = rep(c(1, 2, 3), c(n1, n2, n3))
 
 # Generating the adjacency matrix of the network
 # Generate the matrix of connection probabilities
-cmat = matrix(c(30, 0.05, 0.05,
+cmat = matrix(c(30, 0.05, 0.055,
                 0.05, 30, 0.05,
                 0.05, 0.05, 30),
               ncol = 3,
@@ -102,3 +103,47 @@ print(pvalue)
 # Plotting histogram of the sequence of the test statistics
 hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
 abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
+
+# Testing on the Zachary's Karate Club Data
+
+#set.seed(100000)
+
+# d = zachary # the Zachary's Karate Club data set
+
+# the adjacency matrix
+#A_zachary = as.matrix(d[1:34, ])
+#colnames(A_zachary) = 1:34
+
+# obtaining the graph from the adjacency matrix above
+#g_zachary = igraph::graph_from_adjacency_matrix(A_zachary, mode = "undirected", weighted = NULL)
+
+
+# plotting the graph (network) obtained
+#plot(g_zachary, main = "Network (Graph) for the Zachary's Karate Club data set; reference clustering")
+
+# block assignments
+#K = 2 # no. of blocks
+
+#n1 = 10
+#n2 = 24
+#n = n1 + n2
+
+# known class assignments
+#class = rep(c(1, 2), c(n1, n2))
+
+# goodness-of-fit tests for the Zachary's Karate Club data set
+#out_zachary = goftest(A_zachary, C = class, numGraphs = 100)
+
+#chi_sq_seq = out_zachary$statistic
+#pvalue = out_zachary$p.value
+#print(pvalue)
+
+# Plotting histogram of the sequence of the test statistics
+#hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
+#abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+#legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
+
+
+
+
