@@ -16,6 +16,10 @@ network data.
 
 ### Note
 
+The math rendering of `README.md` is not ideal, as a result of which
+most of the math notations and equations remains unrendered, hence
+`knit` the `README.Rmd`.
+
 ### Overview
 
 *Stochastic blockmodels* (SBMs) contributed to the theoretical and
@@ -185,7 +189,7 @@ remotes::install_github("Roy-SR-007/GoodFitSBM")
 
     #> 
     #> ── R CMD build ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-    #>          checking for file 'C:\Users\sroy_123\AppData\Local\Temp\RtmpWOmaj9\remotes5a404c7676f2\Roy-SR-007-GoodFitSBM-d745a61/DESCRIPTION' ...  ✔  checking for file 'C:\Users\sroy_123\AppData\Local\Temp\RtmpWOmaj9\remotes5a404c7676f2\Roy-SR-007-GoodFitSBM-d745a61/DESCRIPTION'
+    #>          checking for file 'C:\Users\sroy_123\AppData\Local\Temp\RtmpEfvr45\remotes3b00732a2d85\Roy-SR-007-GoodFitSBM-0af895e/DESCRIPTION' ...  ✔  checking for file 'C:\Users\sroy_123\AppData\Local\Temp\RtmpEfvr45\remotes3b00732a2d85\Roy-SR-007-GoodFitSBM-0af895e/DESCRIPTION'
     #>       ─  preparing 'GoodFitSBM':
     #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
     #>       ─  checking for LF line-endings in source and make files and shell scripts
