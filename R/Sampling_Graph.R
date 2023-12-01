@@ -32,6 +32,8 @@
 #'
 #' @export
 #'
+#' @seealso [goftest()] performs the goodness-of-fit test for the beta SBM, where graphs are being sampled
+#'
 #' @examples
 #'
 #' RNGkind(sample.kind = "Rounding")

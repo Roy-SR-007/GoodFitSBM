@@ -31,6 +31,8 @@
 #'
 #' @export
 #'
+#' @seealso [goftest()] performs the goodness-of-fit test for the beta SBM, where the MLE of the edge probabilities are required
+#'
 #' @examples
 #'
 #' RNGkind(sample.kind = "Rounding")
