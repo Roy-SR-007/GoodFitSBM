@@ -195,13 +195,13 @@
 #' <https://doi.org/10.1214/14-AOS1274>
 #'
 #' @references
-#' Li T, Levina E, & Zhu J (2021). "randnet: Random Network Model Estimation, Selection and Parameter Tuning".
+#' Li T, Levina E, & Zhu J (2021). "randnet: Random Network Model Estimation, Selection and Parameter Tuning",
 #' \emph{R packageversion 0.3},
 #' <https://CRAN.R-project.org/package=randnet>
 #'
 #' @references
-#' Ghosh, S (2022). “MCGoSBM: Monte Carlo Goodness of Fit Tests for Stochastic Block Models”.
-#' \emph{Github Repository}
+#' Ghosh, S (2022). “MCGoSBM: Monte Carlo Goodness of Fit Tests for Stochastic Block Models”,
+#' \emph{Github Repository},
 #' <https://github.com/GhoshSoham/MCGoFSBM/tree/main>
 
 goftest = function(A, K = NULL, C = NULL, numGraphs = 100) {
