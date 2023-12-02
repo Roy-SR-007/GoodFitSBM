@@ -189,7 +189,7 @@ remotes::install_github("Roy-SR-007/GoodFitSBM")
 
     #> 
     #> ── R CMD build ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-    #>          checking for file 'C:\Users\sroy_123\AppData\Local\Temp\RtmpEfvr45\remotes3b00732a2d85\Roy-SR-007-GoodFitSBM-0af895e/DESCRIPTION' ...  ✔  checking for file 'C:\Users\sroy_123\AppData\Local\Temp\RtmpEfvr45\remotes3b00732a2d85\Roy-SR-007-GoodFitSBM-0af895e/DESCRIPTION'
+    #>          checking for file 'C:\Users\sroy_123\AppData\Local\Temp\Rtmp6Tqyg2\remotes4fc010e45ec7\Roy-SR-007-GoodFitSBM-4549b55/DESCRIPTION' ...     checking for file 'C:\Users\sroy_123\AppData\Local\Temp\Rtmp6Tqyg2\remotes4fc010e45ec7\Roy-SR-007-GoodFitSBM-4549b55/DESCRIPTION' ...   ✔  checking for file 'C:\Users\sroy_123\AppData\Local\Temp\Rtmp6Tqyg2\remotes4fc010e45ec7\Roy-SR-007-GoodFitSBM-4549b55/DESCRIPTION'
     #>       ─  preparing 'GoodFitSBM':
     #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
     #>       ─  checking for LF line-endings in source and make files and shell scripts
@@ -599,3 +599,23 @@ a good fit, i.e., the data (network/graph) does not fit the beta-SBM at
 all; quite similar to the lines of conclusion as claimed by ([Karwa et
 al. (2023)](https://doi.org/10.1093/jrsssb/qkad084)) under the framework
 of an ER-SBM, see Section 7.1.
+
+### References
+
+- Karwa et al. (2023). “Monte Carlo goodness-of-fit tests for degree
+  corrected and related stochastic blockmodels”, *Journal of the Royal
+  Statistical Society Series B: Statistical Methodology*,
+  <https://doi.org/10.1093/jrsssb/qkad084>.
+- Qin, T., and Rohe, K. (2013). “Regularized spectral clustering under
+  the degree-corrected stochastic blockmodel”, *Advances in neural
+  information processing systems*,
+  <https://proceedings.neurips.cc/paper_files/paper/2013/file/0ed9422357395a0d4879191c66f4faa2-Paper.pdf>.
+- Lei, J., & Rinaldo, A. (2015). “Consistency of spectral clustering in
+  stochastic block models”, *The Annals of Statistics*,
+  <https://doi.org/10.1214/14-AOS1274>.
+- Li T, Levina E, & Zhu J (2021). “randnet: Random Network Model
+  Estimation, Selection and Parameter Tuning”, *R packageversion 0.3*,
+  <https://CRAN.R-project.org/package=randnet>.
+- Ghosh, S (2022). “MCGoSBM: Monte Carlo Goodness of Fit Tests for
+  Stochastic Block Models”, *Github Repository*,
+  <https://github.com/GhoshSoham/MCGoFSBM/tree/main>.
