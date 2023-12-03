@@ -12,12 +12,12 @@ GoodFitSBM (Version 0.0.1): `GoodFitSBM` comprises functionality that
 performs the *goodness-of-fit* test for an **beta-SBM** (one of the
 three variants of SBMs discussed in [Karwa et
 al. (2023)](https://doi.org/10.1093/jrsssb/qkad084) used for modelling
-network data.
+network data).
 
 ### Note
 
 The math rendering of `README.md` is not ideal, as a result of which
-most of the math notations and equations remains unrendered, hence
+most of the math notations and equations remains un-rendered, hence
 `knit` the `README.Rmd`.
 
 ### Overview
@@ -187,16 +187,17 @@ commands.
 remotes::install_github("Roy-SR-007/GoodFitSBM")
 ```
 
+    #> cpp11 (0.4.6 -> 0.4.7) [CRAN]
     #> 
+    #> The downloaded binary packages are in
+    #>  /var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T//Rtmp60RMoo/downloaded_packages
     #> ── R CMD build ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-    #>          checking for file 'C:\Users\sroy_123\AppData\Local\Temp\Rtmp6Tqyg2\remotes4fc010e45ec7\Roy-SR-007-GoodFitSBM-4549b55/DESCRIPTION' ...     checking for file 'C:\Users\sroy_123\AppData\Local\Temp\Rtmp6Tqyg2\remotes4fc010e45ec7\Roy-SR-007-GoodFitSBM-4549b55/DESCRIPTION' ...   ✔  checking for file 'C:\Users\sroy_123\AppData\Local\Temp\Rtmp6Tqyg2\remotes4fc010e45ec7\Roy-SR-007-GoodFitSBM-4549b55/DESCRIPTION'
-    #>       ─  preparing 'GoodFitSBM':
-    #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
-    #>       ─  checking for LF line-endings in source and make files and shell scripts
-    #>       ─  checking for empty or unneeded directories
-    #>       ─  building 'GoodFitSBM_0.0.1.tar.gz'
-    #>      
-    #> 
+    #> * checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/Rtmp60RMoo/remotescf515452b2d/Roy-SR-007-GoodFitSBM-70cc9fe/DESCRIPTION’ ... OK
+    #> * preparing ‘GoodFitSBM’:
+    #> * checking DESCRIPTION meta-information ... OK
+    #> * checking for LF line-endings in source and make files and shell scripts
+    #> * checking for empty or unneeded directories
+    #> * building ‘GoodFitSBM_0.0.1.tar.gz’
 
 ``` r
 library(GoodFitSBM)
@@ -599,6 +600,49 @@ a good fit, i.e., the data (network/graph) does not fit the beta-SBM at
 all; quite similar to the lines of conclusion as claimed by ([Karwa et
 al. (2023)](https://doi.org/10.1093/jrsssb/qkad084)) under the framework
 of an ER-SBM, see Section 7.1.
+
+#### An Addendum to Unknown Block Assignments
+
+All of the above examples along with the instances worked-out with the
+lines of code, deals with the situation where the *block assignments are
+known*. On the contrary, if the block assignments are *unknown* (with
+the number of blocks always fixed and known), we refer to ([Qin and Rohe
+(2013)](https://proceedings.neurips.cc/paper_files/paper/2013/file/0ed9422357395a0d4879191c66f4faa2-Paper.pdf))
+for estimating the block assignments through *regularized spectral
+clustering*. See the following lines of code.
+
+``` r
+library(igraph)
+
+set.seed(100)
+# goodness-of-fit tests for the Zachary's Karate Club data set; with unknown block assignments
+out_zachary_unknown = goftest(A_zachary, K = 2, C = NULL, numGraphs = 100)
+```
+
+    #> 2 iterations: deviation 2.984279e-13
+
+``` r
+chi_sq_seq_unknown = out_zachary_unknown$statistic
+pvalue_unknown = out_zachary_unknown$p.value
+print(pvalue_unknown)
+```
+
+    #> [1] 0.14
+
+``` r
+# Plotting histogram of the sequence of the test statistics
+hist(chi_sq_seq_unknown, 20, xlab = "chi-square test statistics", main = NULL)
+abline(v = chi_sq_seq_unknown[1], col = "red", lwd = 5) # adding test statistic on the observed network
+legend("topleft", legend = paste("observed GoF = ", chi_sq_seq_unknown[1]))
+```
+
+<img src="man/figures/README-8-1.png" style="display: block; margin: auto;" />
+
+With estimation of the unknown block assignments, the $p-$value obtained
+as well as the observed value of the chi-square test statistic (plotted
+histogram), similar to the case as shown earlier for known block
+assignments, we reject the null of a good fit, i.e., the data
+(network/graph) does not fit the beta-SBM at all.
 
 ### References
 
