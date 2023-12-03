@@ -8,4 +8,5 @@
 \item \code{sample_a_move} performs sampling of a graph; sampling done as per the beta SBM framework after one Markov move (basis).
 \item \code{get_mle()} estimates the edge probabilities between blocks in a graph; using the maximum likelihood method of estimation, where the estimates are later required to compute the value of the chi-square test statistic (for performing the goodness-of-fit test) in \code{graphchi}.
 \item \code{zachary} is the classic \emph{Zachary's Karate club data}, on which the goodness-of-fit test under a beta SBM framework is implemented.
+\item This version also handles unknown block assignments of the network (graph) by estimating those through \emph{regularized spectral clustering} \emph{Qin and Rohe (2013)} [\url{https://proceedings.neurips.cc/paper_files/paper/2013/file/0ed9422357395a0d4879191c66f4faa2-Paper.pdf}].
 }}

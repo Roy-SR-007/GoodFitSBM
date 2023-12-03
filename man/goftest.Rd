@@ -179,11 +179,11 @@ Lei, J., & Rinaldo, A. (2015). "Consistency of spectral clustering in stochastic
 \emph{The Annals of Statistics},
 \url{https://doi.org/10.1214/14-AOS1274}
 
-Li T, Levina E, & Zhu J (2021). "randnet: Random Network Model Estimation, Selection and Parameter Tuning".
+Li T, Levina E, & Zhu J (2021). "randnet: Random Network Model Estimation, Selection and Parameter Tuning",
 \emph{R packageversion 0.3},
 \url{https://CRAN.R-project.org/package=randnet}
 
-Ghosh, S (2022). “MCGoSBM: Monte Carlo Goodness of Fit Tests for Stochastic Block Models”.
-\emph{Github Repository}
+Ghosh, S (2022). “MCGoSBM: Monte Carlo Goodness of Fit Tests for Stochastic Block Models”,
+\emph{Github Repository},
 \url{https://github.com/GhoshSoham/MCGoFSBM/tree/main}
 }
