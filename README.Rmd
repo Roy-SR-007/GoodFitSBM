@@ -28,7 +28,7 @@ GoodFitSBM (Version 0.0.1): `GoodFitSBM` comprises functionality that performs t
 
 ### Note
 
-The math rendering of `README.md` is not ideal, as a result of which most of the math notations and equations remains un-rendered, hence `knit` the `README.Rmd`, or refer to the PDF attached as `README.pdf`.
+The math rendering of `README.md` is not ideal, as a result of which most of the math notations and equations remains un-rendered, hence `knit` the `README.Rmd`, or refer to the PDF attached as [README.pdf](https://drive.google.com/file/d/1-mzMOdQ5zWv4uIfoegl1kTGAUPPdd00j/view?usp=sharing).
 
 ### Overview
 
