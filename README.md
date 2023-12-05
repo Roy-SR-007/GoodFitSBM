@@ -9,16 +9,16 @@
 ### NEWS
 
 GoodFitSBM (Version 0.0.1): `GoodFitSBM` comprises functionality that
-performs the *goodness-of-fit* test for an **beta-SBM** (one of the
-three variants of SBMs discussed in [Karwa et
-al. (2023)](https://doi.org/10.1093/jrsssb/qkad084) used for modelling
+performs the *goodness-of-fit* test for a **beta-SBM** (one of the three
+variants of SBMs as discussed in [Karwa et
+al. (2023)](https://doi.org/10.1093/jrsssb/qkad084), used for modelling
 network data).
 
 ### Note
 
 The math rendering of `README.md` is not ideal, as a result of which
 most of the math notations and equations remains un-rendered, hence
-`knit` the `README.Rmd`.
+`knit` the `README.Rmd`, or refer to the PDF attached as `README.pdf`.
 
 ### Overview
 
@@ -72,7 +72,7 @@ analysed to examine the extent of fit of the beta-SBM to the given
 network (graph) (usual rule applies to reject the null of a good fit
 when, $p \leq \alpha$ at level $0< \alpha < 1$). There are other
 functions collated, each performing the required functionality in the
-process, see [GoodFitSBM Github
+process, see the `R` files in [GoodFitSBM Github
 Repo](https://github.com/Roy-SR-007/GoodFitSBM/tree/master/R) for
 details.
 
@@ -187,12 +187,9 @@ commands.
 remotes::install_github("Roy-SR-007/GoodFitSBM")
 ```
 
-    #> cpp11 (0.4.6 -> 0.4.7) [CRAN]
     #> 
-    #> The downloaded binary packages are in
-    #>  /var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T//Rtmp60RMoo/downloaded_packages
     #> ── R CMD build ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-    #> * checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/Rtmp60RMoo/remotescf515452b2d/Roy-SR-007-GoodFitSBM-70cc9fe/DESCRIPTION’ ... OK
+    #> * checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/RtmpG65qP2/remotes32584c52b7f3/Roy-SR-007-GoodFitSBM-f35c19f/DESCRIPTION’ ... OK
     #> * preparing ‘GoodFitSBM’:
     #> * checking DESCRIPTION meta-information ... OK
     #> * checking for LF line-endings in source and make files and shell scripts
@@ -446,8 +443,9 @@ print(pvalue)
 
 ``` r
 # Plotting histogram of the sequence of the test statistics
-hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
-abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL, ylim = c(0, 30))
+# adding test statistic on the observed network
+abline(v = chi_sq_seq[1], col = "red", lwd = 5)
 legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
 ```
 
@@ -457,9 +455,9 @@ From the $p-$value obtained viz., $p=0.20 >> \alpha = 0.05$, we fail to
 the reject the null of a good fit of the given (observed) network to the
 beta-SBM, at level $\alpha = 0.05$.
 
-- Instance 2: Here we consider testing for the goodness-of-fit to the
-  beta-SBM modeling a graph (network) with $k=3$ blocks with sizes $30$,
-  $20$, and $50$, i.e., with a total of $n=100$ nodes.
+- **Instance 2**: Here we consider testing for the goodness-of-fit to
+  the beta-SBM modeling a graph (network) with $k=3$ blocks with sizes
+  $30$, $20$, and $50$, i.e., with a total of $n=100$ nodes.
 
 ``` r
 library(igraph)
@@ -516,8 +514,9 @@ print(pvalue)
 
 ``` r
 # Plotting histogram of the sequence of the test statistics
-hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
-abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL, ylim = c(0, 30))
+# adding test statistic on the observed network
+abline(v = chi_sq_seq[1], col = "red", lwd = 5)
 legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
 ```
 
@@ -552,11 +551,12 @@ A_zachary = as.matrix(d[1:34, ])
 colnames(A_zachary) = 1:34
 
 # obtaining the graph from the adjacency matrix above
-g_zachary = igraph::graph_from_adjacency_matrix(A_zachary, mode = "undirected", weighted = NULL)
+g_zachary = igraph::graph_from_adjacency_matrix(A_zachary, mode = "undirected",
+                                                weighted = NULL)
 
 # plotting the graph (network) obtained
 plot(g_zachary,
-main = "Network (Graph) for the Zachary's Karate Club data set; reference clustering")
+main = "Network (Graph) for the Zachary's Karate Club data set")
 ```
 
 <img src="man/figures/README-7-1.png" style="display: block; margin: auto;" />
@@ -587,8 +587,9 @@ print(pvalue)
 
 ``` r
 # Plotting histogram of the sequence of the test statistics
-hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
-abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL, ylim = c(0, 30))
+# adding test statistic on the observed network
+abline(v = chi_sq_seq[1], col = "red", lwd = 5)
 legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
 ```
 
@@ -615,7 +616,8 @@ clustering*. See the following lines of code.
 library(igraph)
 
 set.seed(100)
-# goodness-of-fit tests for the Zachary's Karate Club data set; with unknown block assignments
+# goodness-of-fit tests for the Zachary's Karate Club data set; 
+# with unknown block assignments
 out_zachary_unknown = goftest(A_zachary, K = 2, C = NULL, numGraphs = 100)
 ```
 
@@ -631,8 +633,9 @@ print(pvalue_unknown)
 
 ``` r
 # Plotting histogram of the sequence of the test statistics
-hist(chi_sq_seq_unknown, 20, xlab = "chi-square test statistics", main = NULL)
-abline(v = chi_sq_seq_unknown[1], col = "red", lwd = 5) # adding test statistic on the observed network
+hist(chi_sq_seq_unknown, 20, xlab = "chi-square test statistics", main = NULL, ylim = c(0, 30))
+# adding test statistic on the observed network
+abline(v = chi_sq_seq_unknown[1], col = "red", lwd = 5)
 legend("topleft", legend = paste("observed GoF = ", chi_sq_seq_unknown[1]))
 ```
 
