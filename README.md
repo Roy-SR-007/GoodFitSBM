@@ -19,7 +19,7 @@ modelling network data).
 The math rendering of `README.md` is not ideal, as a result of which
 most of the math notations and equations remains un-rendered, hence
 `knit` the `README.Rmd`, or refer to the PDF attached as
-[README.pdf](https://drive.google.com/file/d/1-mzMOdQ5zWv4uIfoegl1kTGAUPPdd00j/view?usp=sharing).
+[README.pdf](https://drive.google.com/file/d/1u__igW82LFELlKtHWxqS4fnAZ5y2aHv-/view?usp=sharing).
 
 ### Overview
 
@@ -263,7 +263,7 @@ remotes::install_github("Roy-SR-007/GoodFitSBM")
 
     #> 
     #> ── R CMD build ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-    #>      checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/RtmpRX2GCi/remotes329e4aa087f5/Roy-SR-007-GoodFitSBM-4b351f1/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/RtmpRX2GCi/remotes329e4aa087f5/Roy-SR-007-GoodFitSBM-4b351f1/DESCRIPTION’
+    #>      checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/RtmpwApf0G/remotes359c7f6dc27b/Roy-SR-007-GoodFitSBM-2b42468/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/RtmpwApf0G/remotes359c7f6dc27b/Roy-SR-007-GoodFitSBM-2b42468/DESCRIPTION’
     #>   ─  preparing ‘GoodFitSBM’:
     #>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
     #>   ─  checking for LF line-endings in source and make files and shell scripts
