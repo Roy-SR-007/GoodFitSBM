@@ -2,7 +2,7 @@
 #'
 #' @title Monte Carlo goodness-of-fit tests for Stochastic Blockmodels (SBMs)
 #'
-#' @description `goftest_BetaSBM` performs chi square goodness-of-fit test for network data considering the model as beta SBM (Karwa et al. (2023))
+#' @description `goftest_BetaSBM` performs chi square goodness-of-fit test for network data considering the model as beta-SBM (Karwa et al. (2023))
 #'
 #' @param A n by n binary symmetric adjacency matrix representing an undirected graph where n is the number of nodes in the graph
 #' @param K positive integer scalar representing the number of blocks; K>1
@@ -205,8 +205,8 @@
 #' <https://github.com/GhoshSoham/MCGoFSBM/tree/main>
 
 goftest_BetaSBM = function(A, K = NULL, C = NULL, numGraphs = 100) {
-  # The true model is beta SBM
-  # Testing whether the observed graph follows beta SBM using chi square goodness of fit test for network data
+  # The true model is beta-SBM
+  # Testing whether the observed graph follows beta-SBM using chi square goodness of fit test for network data
 
   # Some compatibility checks and error message
   # Check whether the input A is a matrix

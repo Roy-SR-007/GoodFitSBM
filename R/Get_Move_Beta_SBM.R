@@ -1,6 +1,6 @@
 # Get.Move.beta.SBM
 
-# underlying model: beta SBM
+# underlying model: beta-SBM
 
 # objective :: returning a random move, not necessarily primitive that is applicable to the observed
 # network (graph) G that is guaranteed to move to a network in the beta-SBM fiber.

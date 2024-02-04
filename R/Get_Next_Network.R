@@ -1,6 +1,6 @@
 # Get.Next.Network
 
-# underlying model: beta SBM
+# underlying model: beta-SBM
 
 # objective :: given a mixed graph G = (d,b), the routine returns new mixed graph G' in the beta-SBM fiber
 # the move could be only directed, or only bidirected, or a composite of the two viz., a mixed move

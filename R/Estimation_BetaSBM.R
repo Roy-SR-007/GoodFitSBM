@@ -1,7 +1,7 @@
 #'
 #' @title Maximum Likelihood Estimation of edge probabilities between blocks of a graph
 #'
-#' @description `get_mle_BetaSBM` obtains MLE for the probability of edges between blocks in a graph, used in calculating the goodness-of-fit test statistic for the beta SBM (Karwa et al. (2023))
+#' @description `get_mle_BetaSBM` obtains MLE for the probability of edges between blocks in a graph, used in calculating the goodness-of-fit test statistic for the beta-SBM (Karwa et al. (2023))
 #'
 #' @param G an igraph object which is an undirected graph with no self loop
 #' @param C a positive integer vector of size n for block assignments of each node; from 1 to K (no of blocks)
@@ -31,7 +31,7 @@
 #'
 #' @export
 #'
-#' @seealso [goftest_BetaSBM()] performs the goodness-of-fit test for the beta SBM, where the MLE of the edge probabilities are required
+#' @seealso [goftest_BetaSBM()] performs the goodness-of-fit test for the beta-SBM, where the MLE of the edge probabilities are required
 #'
 #' @examples
 #'
@@ -86,7 +86,7 @@ get_mle_BetaSBM = function(G, C) {
 
   # get_mle_BetaSBM
 
-  # underlying model: beta SBM
+  # underlying model: beta-SBM
 
   # objective :: calculating the MLE of the probability of edges between blocks
 
