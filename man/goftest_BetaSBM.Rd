@@ -21,7 +21,7 @@ A list with the elements
 \item{p.value}{the p-value for the test}
 }
 \description{
-\code{goftest_BetaSBM} performs chi square goodness-of-fit test for network data considering the model as beta SBM (Karwa et al. (2023))
+\code{goftest_BetaSBM} performs chi square goodness-of-fit test for network data considering the model as beta-SBM (Karwa et al. (2023))
 }
 \examples{
 

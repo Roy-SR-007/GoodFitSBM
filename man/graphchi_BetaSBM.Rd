@@ -2,7 +2,7 @@
 % Please edit documentation in R/TestStatistic_BetaSBM.R
 \name{graphchi_BetaSBM}
 \alias{graphchi_BetaSBM}
-\title{Computation of the chi-square test statistic for goodness-of-fit under beta SBM}
+\title{Computation of the chi-square test statistic for goodness-of-fit under beta-SBM}
 \usage{
 graphchi_BetaSBM(G, C, p_mle)
 }
@@ -18,7 +18,7 @@ A numeric value
 \item{teststat_val}{The value of the chi-square test statistic}
 }
 \description{
-\code{graphchi_BetaSBM} obtains the value of the chi-square test statistic required for the goodness-of-fit of a beta SBM (Karwa et al. (2023))
+\code{graphchi_BetaSBM} obtains the value of the chi-square test statistic required for the goodness-of-fit of a beta-SBM (Karwa et al. (2023))
 }
 \examples{
 
@@ -68,5 +68,5 @@ p.hat = get_mle_BetaSBM (G, class)
 graphchi_BetaSBM(G, class, p.hat)
 }
 \seealso{
-\code{\link[=goftest_BetaSBM]{goftest_BetaSBM()}} performs the goodness-of-fit test for the beta SBM, where the values of the chi-square test statistics are required
+\code{\link[=goftest_BetaSBM]{goftest_BetaSBM()}} performs the goodness-of-fit test for the beta-SBM, where the values of the chi-square test statistics are required
 }

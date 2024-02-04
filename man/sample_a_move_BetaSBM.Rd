@@ -2,7 +2,7 @@
 % Please edit documentation in R/Sampling_Graph_BetaSBM.R
 \name{sample_a_move_BetaSBM}
 \alias{sample_a_move_BetaSBM}
-\title{Sampling a graph through a Markov move (basis) for beta SBM}
+\title{Sampling a graph through a Markov move (basis) for beta-SBM}
 \usage{
 sample_a_move_BetaSBM(C, G_current)
 }
@@ -13,10 +13,10 @@ sample_a_move_BetaSBM(C, G_current)
 }
 \value{
 A graph
-\item{sampled graph}{the sampled graph after one move as per the beta SBM}
+\item{sampled graph}{the sampled graph after one move as per the beta-SBM}
 }
 \description{
-\code{sample_a_move_BetaSBM} to sample a graph in the same fiber; sampling according to the beta SBM (Karwa et al. (2023))
+\code{sample_a_move_BetaSBM} to sample a graph in the same fiber; sampling according to the beta-SBM (Karwa et al. (2023))
 }
 \examples{
 
@@ -59,11 +59,11 @@ adjsymm = adj + t(adj)
 # graph from the adjacency matrix
 G = igraph::graph_from_adjacency_matrix(adjsymm, mode = "undirected", weighted = NULL)
 
-# sampling a Markov move for the beta SBM
+# sampling a Markov move for the beta-SBM
 G_sample = sample_a_move_BetaSBM(class, G)
 
 # plotting the sampled graph
-plot(G_sample, main = "The sampled graph after one Markov move for beta SBM")
+plot(G_sample, main = "The sampled graph after one Markov move for beta-SBM")
 
 }
 \references{
@@ -72,5 +72,5 @@ Karwa et al. (2023). "Monte Carlo goodness-of-fit tests for degree corrected and
 \url{https://doi.org/10.1093/jrsssb/qkad084}
 }
 \seealso{
-\code{\link[=goftest_BetaSBM]{goftest_BetaSBM()}} performs the goodness-of-fit test for the beta SBM, where graphs are being sampled
+\code{\link[=goftest_BetaSBM]{goftest_BetaSBM()}} performs the goodness-of-fit test for the beta-SBM, where graphs are being sampled
 }

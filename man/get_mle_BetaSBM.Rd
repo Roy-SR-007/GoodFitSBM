@@ -16,7 +16,7 @@ A matrix of maximum likelihood estimates
 \item{mleMatr}{a matrix containing the estimated edge probabilities between blocks in a graph}
 }
 \description{
-\code{get_mle_BetaSBM} obtains MLE for the probability of edges between blocks in a graph, used in calculating the goodness-of-fit test statistic for the beta SBM (Karwa et al. (2023))
+\code{get_mle_BetaSBM} obtains MLE for the probability of edges between blocks in a graph, used in calculating the goodness-of-fit test statistic for the beta-SBM (Karwa et al. (2023))
 }
 \examples{
 
@@ -69,5 +69,5 @@ Karwa et al. (2023). "Monte Carlo goodness-of-fit tests for degree corrected and
 \url{https://doi.org/10.1093/jrsssb/qkad084}
 }
 \seealso{
-\code{\link[=goftest_BetaSBM]{goftest_BetaSBM()}} performs the goodness-of-fit test for the beta SBM, where the MLE of the edge probabilities are required
+\code{\link[=goftest_BetaSBM]{goftest_BetaSBM()}} performs the goodness-of-fit test for the beta-SBM, where the MLE of the edge probabilities are required
 }
