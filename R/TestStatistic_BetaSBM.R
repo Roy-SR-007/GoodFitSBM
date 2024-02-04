@@ -78,11 +78,6 @@
 #'
 #' # chi-square test statistic values
 #' graphchi_BetaSBM(G, class, p.hat)
-#'
-#' #' @references
-#' Karwa et al. (2023). "Monte Carlo goodness-of-fit tests for degree corrected and related stochastic blockmodels",
-#' \emph{Journal of the Royal Statistical Society Series B: Statistical Methodology},
-#' <https://doi.org/10.1093/jrsssb/qkad084>
 
 graphchi_BetaSBM = function(G, C, p_mle) {
 

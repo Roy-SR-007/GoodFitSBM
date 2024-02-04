@@ -66,11 +66,6 @@ p.hat = get_mle_ERSBM(G, class)
 
 # chi-square test statistic values
 graphchi_ERSBM(G, class, p.hat)
-
-#' @references
-Karwa et al. (2023). "Monte Carlo goodness-of-fit tests for degree corrected and related stochastic blockmodels",
-\emph{Journal of the Royal Statistical Society Series B: Statistical Methodology},
-<https://doi.org/10.1093/jrsssb/qkad084>
 }
 \seealso{
 \code{\link[=goftest_ERSBM]{goftest_ERSBM()}} performs the goodness-of-fit test for the ERSBM, where the values of the chi-square test statistics are required
