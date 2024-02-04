@@ -1,5 +1,5 @@
 #'
-#' @title Computation of the chi-square test statistic for goodness-of-fit under ERSBM
+#' @title Computation of the chi-square test statistic for goodness-of-fit, under ERSBM
 #' @description `graphchi_ERSBM` obtains the value of the chi-square test statistic required for the goodness-of-fit of a ERSBM (Karwa et al. (2023))
 #'
 #' @param G an igraph object which is an undirected graph with no self loop
