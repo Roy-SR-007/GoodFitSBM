@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 ### NEWS
 
-GoodFitSBM (Version 0.0.1): `GoodFitSBM` comprises functionality that performs the *goodness-of-fit* test for a **beta-SBM** (one of the three variants of SBMs as discussed in [Karwa et al. (2023)](https://doi.org/10.1093/jrsssb/qkad084), used for modelling network data).
+GoodFitSBM (Version 0.0.1): `GoodFitSBM` comprises functionality that performs the *goodness-of-fit* test for a **ER-SBM** as well as a **beta-SBM** (two of the three variants of SBMs as discussed in [Karwa et al. (2023)](https://doi.org/10.1093/jrsssb/qkad084), used for modelling network data).
 
 
 ### Note
@@ -154,7 +154,7 @@ G = igraph::graph_from_adjacency_matrix(adjsymm, mode = "undirected", weighted =
 plot(G, main = "The current graph")
 
 # sampling a Markov move for the beta SBM
-G_sample = sample_a_move(class, G)
+G_sample = sample_a_move_ERSBM(class, G)
 
 # plotting the sampled graph
 plot(G_sample, main = "The sampled graph after one Markov move for beta SBM")
@@ -206,7 +206,7 @@ adjsymm = adj + t(adj)
 G = igraph::graph_from_adjacency_matrix(adjsymm, mode = "undirected", weighted = NULL)
 
 # mle of the edge probabilities
-get_mle(G, class)
+get_mle_ERSBM(G, class)
 ```
 
 #### Example 3: Computing the chi-square test statistic value using `graphchi()`
@@ -255,10 +255,10 @@ adjsymm = adj + t(adj)
 G = igraph::graph_from_adjacency_matrix(adjsymm, mode = "undirected", weighted = NULL)
 
 # mle of the edge probabilities
-p.hat = get_mle(G, class)
+p.hat = get_mle_ERSBM(G, class)
 
 # chi-square test statistic values
-graphchi(G, class, p.hat)
+graphchi_ERSBM(G, class, p.hat)
 ```
 
 #### Main Example: `goftest()` in action
@@ -304,7 +304,7 @@ for (i in 2:n) {
 adjsymm = adj + t(adj)
 
 # When class assignment is known
-out = goftest(adjsymm, C = class, numGraphs = 100)
+out = goftest_ERSBM(adjsymm, C = class, numGraphs = 100)
 
 chi_sq_seq = out$statistic
 pvalue = out$p.value
@@ -322,7 +322,6 @@ From the $p-$value obtained viz., $p=0.20 >> \alpha = 0.05$, we fail to the reje
 * **Instance 2**: Here we consider testing for the goodness-of-fit to the beta-SBM modeling a graph (network) with $k=3$ blocks with sizes $30$, $20$, and $50$, i.e., with a total of $n=100$ nodes.
 
 ```{r 6, warning = FALSE}
-library(igraph)
 library(igraph)
 RNGkind(sample.kind = "Rounding")
 set.seed(1729)
@@ -361,7 +360,7 @@ for (i in 2:n) {
 adjsymm = adj + t(adj)
 
 # When class assignment is known
-out = goftest(adjsymm, C = class, numGraphs = 100)
+out = goftest_ERSBM(adjsymm, C = class, numGraphs = 100)
 
 chi_sq_seq = out$statistic
 pvalue = out$p.value
@@ -413,7 +412,7 @@ n = n1 + n2
 # known class assignments
 class = rep(c(1, 2), c(n1, n2))
 # goodness-of-fit tests for the Zachary's Karate Club data set
-out_zachary = goftest(A_zachary, C = class, numGraphs = 100)
+out_zachary = goftest_ERSBM(A_zachary, C = class, numGraphs = 100)
 
 chi_sq_seq = out_zachary$statistic
 pvalue = out_zachary$p.value
@@ -438,7 +437,7 @@ library(igraph)
 set.seed(100)
 # goodness-of-fit tests for the Zachary's Karate Club data set; 
 # with unknown block assignments
-out_zachary_unknown = goftest(A_zachary, K = 2, C = NULL, numGraphs = 100)
+out_zachary_unknown = goftest_ERSBM(A_zachary, K = 2, C = NULL, numGraphs = 100)
 
 chi_sq_seq_unknown = out_zachary_unknown$statistic
 pvalue_unknown = out_zachary_unknown$p.value
