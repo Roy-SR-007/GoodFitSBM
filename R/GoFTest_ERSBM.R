@@ -28,9 +28,9 @@
 #' @importFrom igraph get.edgelist
 #' @importFrom igraph subgraph.edges
 #'
-#' @include Estimation_MLE.R
-#' @include TestStatistic_graphchi.R
-#' @include Sampling_Graph.R
+#' @include Estimation_ERSBM.R
+#' @include TestStatistic_ERSBM.R
+#' @include Sampling_Graph_ERSBM.R
 #' @include Estimation_Block.R
 #'
 #' @export

@@ -2,13 +2,16 @@ Package: GoodFitSBM
 Title: Monte Carlo goodness-of-fit tests for Stochastic Blockmodels (SBMs)
 Version: 0.0.1
 Authors@R: 
-    c(person("Somjit", "Roy",
-    email = "sroy_123@tamu.edu", 
+    c(person("Soham", "Ghosh",
+    email = "sohamghosh@tamu.edu", 
     role = c("aut", "cre")),
+    person("Somjit", "Roy",
+    email = "sroy_123@tamu.edu", 
+    role = "aut"),
     person("Debdeep", "Pati",
     email = "debdeep@stat.tamu.edu",
     role = "aut"))
-Description: Performing goodness-of-fit tests for stochastic blockmodels used to fit network data. Among the three variants of SBMs discussed in <https://doi.org/10.1093/jrsssb/qkad084>, goodness-of-fit test has been performed for the beta version of SBMs. 
+Description: Performing goodness-of-fit tests for stochastic blockmodels used to fit network data. Among the three variants of SBMs discussed in <https://doi.org/10.1093/jrsssb/qkad084>, goodness-of-fit test has been performed for the ER and Beta versions of SBMs. 
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -28,10 +31,6 @@ Collate:
     'Estimation_BetaSBM.R'
     'Estimation_Block.R'
     'Estimation_ERSBM.R'
-    'Sampling_Graph.R'
-    'TestStatistic_graphchi.R'
-    'Estimation_MLE.R'
-    'GOFTest_BetaSBM.R'
     'Get_Directed_Piece.R'
     'Get_Directed_Move_p1_ed.R'
     'Get_Between_Blocks_Move_beta_SBM.R'
@@ -42,9 +41,10 @@ Collate:
     'Get_Within_Blocks_beta_SBM.R'
     'Get_Move_Beta_SBM.R'
     'Get_Next_Network.R'
-    'GoFTest_ERSBM.R'
     'Sampling_Graph_BetaSBM.R'
-    'Sampling_Graph_ERSBM.R'
     'TestStatistic_BetaSBM.R'
+    'GoFTest_BetaSBM.R'
+    'Sampling_Graph_ERSBM.R'
     'TestStatistic_ERSBM.R'
+    'GoFTest_ERSBM.R'
     'zachary.R'
