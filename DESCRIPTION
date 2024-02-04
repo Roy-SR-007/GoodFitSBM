@@ -20,6 +20,9 @@ Imports:
     igraph,
     utils,
     irlba
+Depends: 
+    R (>= 2.10)
+LazyData: true
 Collate: 
     'Bipartite_Walk.R'
     'Estimation_BetaSBM.R'
@@ -45,6 +48,3 @@ Collate:
     'TestStatistic_BetaSBM.R'
     'TestStatistic_ERSBM.R'
     'zachary.R'
-Depends: 
-    R (>= 2.10)
-LazyData: true

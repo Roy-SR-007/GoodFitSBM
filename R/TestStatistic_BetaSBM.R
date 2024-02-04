@@ -1,6 +1,6 @@
 #'
 #' @title Computation of the chi-square test statistic for goodness-of-fit under beta SBM
-#' @description `graphchi` obtains the value of the chi-square test statistic required for the goodness-of-fit of a beta SBM (Karwa et al. (2023))
+#' @description `graphchi_BetaSBM` obtains the value of the chi-square test statistic required for the goodness-of-fit of a beta SBM (Karwa et al. (2023))
 #'
 #' @param G an igraph object which is an undirected graph with no self loop
 #' @param C a positive integer vector of size n for block assignments of each node; from 1 to K (no of blocks)
@@ -30,7 +30,7 @@
 #'
 #' @export
 #'
-#' @seealso [goftest()] performs the goodness-of-fit test for the beta SBM, where the values of the chi-square test statistics are required
+#' @seealso [goftest_BetaSBM()] performs the goodness-of-fit test for the beta SBM, where the values of the chi-square test statistics are required
 #'
 #' @examples
 #'
@@ -74,14 +74,14 @@
 #' G = igraph::graph_from_adjacency_matrix(adjsymm, mode = "undirected", weighted = NULL)
 #'
 #' # mle of the edge probabilities
-#' p.hat = get_mle(G, class)
+#' p.hat = get_mle_BetaSBM (G, class)
 #'
 #' # chi-square test statistic values
-#' graphchi(G, class, p.hat)
+#' graphchi_BetaSBM(G, class, p.hat)
 
-graphchi = function(G, C, p_mle) {
+graphchi_BetaSBM = function(G, C, p_mle) {
 
-  # graphchi
+  # graphchi_BetaSBM
 
   # underlying model: beta SBM
 

@@ -31,7 +31,7 @@
 #'
 #' @export
 #'
-#' @seealso [goftest()] performs the goodness-of-fit test for the ERSBM, where graphs are being sampled
+#' @seealso [goftest_ERSBM()] performs the goodness-of-fit test for the ERSBM, where graphs are being sampled
 #'
 #' @examples
 #'

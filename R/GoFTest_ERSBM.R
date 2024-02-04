@@ -285,20 +285,20 @@ goftest_ERSBM <- function(A, K = NULL, C = NULL, numGraphs = 100) {
 
   # Calculate estimate of the parameter from observed graph
   # which will remain same after generating a new graph on same fiber
-  p_mle <- get_mle(G_obs, C)
+  p_mle <- get_mle_ERSBM(G_obs, C)
 
   # It will store GoF test statistic on graphs
   chi_seqR <- rep(0, numGraphs)
   G <- G_obs
 
   # Storing the first entry of chi_seq as test-stat on observed graph
-  chi_seqR[1] <- round(graphchi(G, C, p_mle), 2)
+  chi_seqR[1] <- round(graphchi_ERSBM(G, C, p_mle), 2)
   for (i in 2:numGraphs) {
     # Sampling a new graph
-    G_current <- sample_a_move(C, G)
+    G_current <- sample_a_move_ERSBM(C, G)
 
     # Computing GoF test statistic on new sampled graph
-    chi_seqR[i] <- round(graphchi(G_current, C, p_mle), 2)
+    chi_seqR[i] <- round(graphchi_ERSBM(G_current, C, p_mle), 2)
     G <- G_current
   }
 
