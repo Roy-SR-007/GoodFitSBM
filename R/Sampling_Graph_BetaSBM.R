@@ -2,7 +2,7 @@
 #'
 #' @title Sampling a graph through a Markov move (basis) for beta SBM
 #'
-#' @description `sample_a_move` to sample a graph in the same fiber; sampling according to the beta SBM (Karwa et al. (2023))
+#' @description `sample_a_move_BetaSBM` to sample a graph in the same fiber; sampling according to the beta SBM (Karwa et al. (2023))
 #'
 #' @param C a positive integer vector of size n for block assignments of each node; from 1 to K (no of blocks)
 #' @param G_current an igraph object which is an undirected graph with no self loop
@@ -76,7 +76,7 @@
 #' G = igraph::graph_from_adjacency_matrix(adjsymm, mode = "undirected", weighted = NULL)
 #'
 #' # sampling a Markov move for the beta SBM
-#' G_sample = sample_a_move(class, G)
+#' G_sample = sample_a_move_BetaSBM(class, G)
 #'
 #' # plotting the sampled graph
 #' plot(G_sample, main = "The sampled graph after one Markov move for beta SBM")
@@ -86,9 +86,9 @@
 #' \emph{Journal of the Royal Statistical Society Series B: Statistical Methodology},
 #' <https://doi.org/10.1093/jrsssb/qkad084>
 
-sample_a_move = function(C, G_current) {
+sample_a_move_BetaSBM = function(C, G_current) {
 
-  # sample_a_move
+  # sample_a_move_BetaSBM
 
   # underlying model: beta SBM
 

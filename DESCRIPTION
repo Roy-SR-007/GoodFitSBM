@@ -23,7 +23,8 @@ Imports:
 Collate: 
     'Bipartite_Walk.R'
     'Estimation_Block.R'
-    'Estimation_MLE.R'
+    'Estimation_ERSBM.R'
+    'Estimation_BetaSBM.R'
     'Get_Directed_Piece.R'
     'as_arbitrary_directed.R'
     'Get_Bidirected_Piece.R'
@@ -34,8 +35,11 @@ Collate:
     'Get_Induced_Subgraph.R'
     'Get_Move_Beta_SBM.R'
     'Get_Next_Network.R'
-    'Sampling_Graph.R'
-    'TestStatistic_graphchi.R'
+    'Sampling_Graph_ERSBM.R'
+    'Sampling_Graph_BetaSBM.R'
+    'TestStatistic_ERSBM.R'
+    'TestStatistic_BetaSBM.R'
+    'GOFTest_BetaSBM.R'
     'GOFTest_betaSBM.R'
     'zachary.R'
 Depends: 
