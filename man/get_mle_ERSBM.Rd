@@ -2,7 +2,7 @@
 % Please edit documentation in R/Estimation_ERSBM.R
 \name{get_mle_ERSBM}
 \alias{get_mle_ERSBM}
-\title{Maximum Likelihood Estimation of edge probabilities between blocks of a graph}
+\title{Maximum Likelihood Estimation of edge probabilities between blocks of a graph, under ERSBM}
 \usage{
 get_mle_ERSBM(G, C)
 }
