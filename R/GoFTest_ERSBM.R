@@ -1,39 +1,59 @@
-# The true model is ERSBM
-# Testing whether the observed graph follows ERSBM model using chi square goodness of fit test
-# for network data
-
 #'
-#' @title Monte Carlo Goodness of Fit tests for Stochastic Block Models
+#' @title Monte Carlo goodness-of-fit tests for Stochastic Blockmodels (SBMs)
 #'
-#' @description `goftest` performs chi square goodness of fit test for network data considering the model as ERSBM
+#' @description `goftest_ERSBM` performs chi square goodness-of-fit test for network data considering the model as  ERSBM (Karwa et al. (2023))
 #'
-#' @param A a n by n binary symmetric adjacency matrix representing a undirected graph where n is the no nodes in the graph
-#' @param K a positive integer scalar representing no of blocks; K>1
-#' @param C an positive integer vector of size n of block assignment of each node; from 1 to K (no of blocks)
-#' @param numGraphs number of graphs will be sampled; default value is 100
+#' @param A n by n binary symmetric adjacency matrix representing an undirected graph where n is the number of nodes in the graph
+#' @param K positive integer scalar representing the number of blocks; K>1
+#' @param C positive integer vector of size n for block assignments of each node; from 1 to K (no of blocks)
+#' @param numGraphs number of graphs to be sampled; default value is 100
 #'
 #' @return A list with the elements
 #' \item{statistic}{the values of the chi-square test statistics on each sampled graph}
-#' \item{p.value}{the p-value for the test.}
+#' \item{p.value}{the p-value for the test}
+#'
+#' @importFrom igraph graph.empty
+#' @importFrom igraph vcount
+#' @importFrom igraph graph
+#' @importFrom igraph ecount
+#' @importFrom igraph graph.intersection
+#' @importFrom igraph graph.difference
+#' @importFrom igraph as.directed
+#' @importFrom igraph is.simple
+#' @importFrom igraph is.directed
+#' @importFrom igraph graph.union
+#' @importFrom igraph get.edges
+#' @importFrom igraph get.edge.ids
+#' @importFrom igraph as.undirected
+#' @importFrom igraph get.edgelist
+#' @importFrom igraph subgraph.edges
+#'
+#' @include Estimation_MLE.R
+#' @include TestStatistic_graphchi.R
+#' @include Sampling_Graph.R
+#' @include Estimation_Block.R
 #'
 #' @export
 #'
 #' @examples
+#'
+#' # Example 1
+#'
 #' RNGkind(sample.kind = "Rounding")
 #' set.seed(1729)
 #'
-#' # We model a network with 3 even classes.
-#' n1 <- 50
-#' n2 <- 50
-#' n3 <- 50
+#' # We model a network with 3 even classes
+#' n1 = 50
+#' n2 = 50
+#' n3 = 50
 #'
-#' # Generating block assignment for each of the nodes
-#' n <- n1 + n2 + n3
-#' class <- rep(c(1, 2, 3), c(n1, n2, n3))
+#' # Generating block assignments for each of the nodes
+#' n = n1 + n2 + n3
+#' class = rep(c(1, 2, 3), c(n1, n2, n3))
 #'
 #' # Generating the adjacency matrix of the network
-#' # Generate the matrix of connection probability.
-#' cmat <- matrix(
+#' # Generate the matrix of connection probabilities
+#' cmat = matrix(
 #'   c(
 #'     30, 0.05, 0.05,
 #'     0.05, 30, 0.05,
@@ -42,52 +62,148 @@
 #'   ncol = 3,
 #'   byrow = TRUE
 #' )
-#' pmat <- cmat / n
+#' pmat = cmat / n
 #'
-#' # Creating the n x n adjacency matrix.
+#' # Creating the n x n adjacency matrix
 #' adj <- matrix(0, n, n)
 #' for (i in 2:n) {
 #'   for (j in 1:(i - 1)) {
-#'     p <- pmat[class[i], class[j]] # We find the probability of connection with the weights.
-#'     adj[i, j] <- rbinom(1, 1, p) # We include the edge with probability p.
+#'     p = pmat[class[i], class[j]] # We find the probability of connection with the weights
+#'     adj[i, j] = rbinom(1, 1, p) # We include the edge with probability p
 #'   }
 #' }
 #'
-#' adjsymm <- adj + t(adj)
+#' adjsymm = adj + t(adj)
 #'
 #' # When class assignment is known
-#' out <- goftest(adjsymm, C = class, numGraphs = 100)
+#' out = goftest_ERSBM(adjsymm, C = class, numGraphs = 100)
 #'
-#' chi_sq_seq <- out$statistic
-#' pvalue <- out$p.value
+#' chi_sq_seq = out$statistic
+#' pvalue = out$p.value
 #' print(pvalue)
 #'
 #' # Plotting histogram of the sequence of the test statistics
 #' hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
 #' abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+#' legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
 #'
-#' @references
-#' Karwa et al. (2016) Monte Carlo goodness-of-fit tests for degree corrected and related stochastic blockmodels,
-#' \doi{10.48550/ARXIV.1612.06040}
+#' # Example 2
 #'
-#' @references
-#' Qin, T., & Rohe, K. (2013). Regularized spectral clustering under the degree-corrected stochastic blockmodel,
-#' \emph{Advances in neural information processing systems},
-#' \strong{26}.
+#'#' RNGkind(sample.kind = "Rounding")
+#' set.seed(1729)
 #'
-#' @references
-#' Lei, J., & Rinaldo, A. (2015). Consistency of spectral clustering in stochastic block models,
-#' \emph{The Annals of Statistics},
-#' \strong{43(1)}, 215-237.
-#' \doi{10.1214/14-aos1274}
+#' # We model a network with 3 even classes
+#' n1 = 30
+#' n2 = 20
+#' n3 = 50
 #'
-#' @references
-#' Li T, Levina E, Zhu J (2021). randnet: Random Network Model Estimation, Selection and Parameter Tuning.
-#' \emph{R packageversion 0.3},
-#' <https://CRAN.R-project.org/package=randnet>.
+#' # Generating block assignments for each of the nodes
+#' n = n1 + n2 + n3
+#' class = rep(c(1, 2, 3), c(n1, n2, n3))
 #'
+#' # Generating the adjacency matrix of the network
+#' # Generate the matrix of connection probabilities
+#' cmat = matrix(
+#'   c(
+#'     30, 0.05, 0.05,
+#'     0.05, 30, 0.05,
+#'     0.05, 0.05, 30
+#'   ),
+#'   ncol = 3,
+#'   byrow = TRUE
+#' )
+#' pmat = cmat / n
+#'
+#' # Creating the n x n adjacency matrix
+#' adj <- matrix(0, n, n)
+#' for (i in 2:n) {
+#'   for (j in 1:(i - 1)) {
+#'     p = pmat[class[i], class[j]] # We find the probability of connection with the weights
+#'     adj[i, j] = rbinom(1, 1, p) # We include the edge with probability p
+#'   }
+#' }
+#'
+#' adjsymm = adj + t(adj)
+#'
+#' # When class assignment is known
+#' out = goftest_ERSBM(adjsymm, C = class, numGraphs = 100)
+#'
+#' chi_sq_seq = out$statistic
+#' pvalue = out$p.value
+#' print(pvalue)
+#'
+#' # Plotting histogram of the sequence of the test statistics
+#' hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
+#' abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+#' legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
+#'
+#' # Application on real dataset: Testing on the Zachary's Karate Club Data
+#'
+#' set.seed(100000)
+#'
+#' data("zachary")
+#'
+#' d = zachary # the Zachary's Karate Club data set
+#'
+#' # the adjacency matrix
+#' A_zachary = as.matrix(d[1:34, ])
+#' colnames(A_zachary) = 1:34
+#'
+#' # obtaining the graph from the adjacency matrix above
+#' g_zachary = igraph::graph_from_adjacency_matrix(A_zachary, mode = "undirected", weighted = NULL)
+#'
+#' # plotting the graph (network) obtained
+#' plot(g_zachary,
+#' main = "Network (Graph) for the Zachary's Karate Club data set; reference clustering")
+#'
+#' # block assignments
+#' K = 2 # no. of blocks
+#'
+#' n1 = 10
+#' n2 = 24
+#' n = n1 + n2
+#'
+#' # known class assignments
+#' class = rep(c(1, 2), c(n1, n2))
 
-goftest <- function(A, K = NULL, C = NULL, numGraphs = 100) {
+#' # goodness-of-fit tests for the Zachary's Karate Club data set
+#' out_zachary = goftest_ERSBM(A_zachary, C = class, numGraphs = 100)
+#'
+#' chi_sq_seq = out_zachary$statistic
+#' pvalue = out_zachary$p.value
+#' print(pvalue)
+#'
+#' # Plotting histogram of the sequence of the test statistics
+#' hist(chi_sq_seq, 20, xlab = "chi-square test statistics", main = NULL)
+#' abline(v = chi_sq_seq[1], col = "red", lwd = 5) # adding test statistic on the observed network
+#' legend("topleft", legend = paste("observed GoF = ", chi_sq_seq[1]))
+#'
+#' @references
+#' Karwa et al. (2023). "Monte Carlo goodness-of-fit tests for degree corrected and related stochastic blockmodels",
+#' \emph{Journal of the Royal Statistical Society Series B: Statistical Methodology},
+#' <https://doi.org/10.1093/jrsssb/qkad084>
+#'
+#' @references
+#' Qin, T., and Rohe, K. (2013). "Regularized spectral clustering under the degree-corrected stochastic blockmodel",
+#' \emph{Advances in neural information processing systems},
+#' <https://proceedings.neurips.cc/paper_files/paper/2013/file/0ed9422357395a0d4879191c66f4faa2-Paper.pdf>
+#'
+#' @references
+#' Lei, J., & Rinaldo, A. (2015). "Consistency of spectral clustering in stochastic block models",
+#' \emph{The Annals of Statistics},
+#' <https://doi.org/10.1214/14-AOS1274>
+#'
+#' @references
+#' Li T, Levina E, & Zhu J (2021). "randnet: Random Network Model Estimation, Selection and Parameter Tuning",
+#' \emph{R packageversion 0.3},
+#' <https://CRAN.R-project.org/package=randnet>
+#'
+#' @references
+#' Ghosh, S (2022). “MCGoSBM: Monte Carlo Goodness of Fit Tests for Stochastic Block Models”,
+#' \emph{Github Repository},
+#' <https://github.com/GhoshSoham/MCGoFSBM/tree/main>
+
+goftest_ERSBM <- function(A, K = NULL, C = NULL, numGraphs = 100) {
   # Some compatibility checks and error message
   # Check whether the input A is a matrix
   if (!is.matrix(A) | !is.numeric(A)) {

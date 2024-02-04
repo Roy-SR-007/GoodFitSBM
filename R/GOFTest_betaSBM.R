@@ -2,7 +2,7 @@
 #'
 #' @title Monte Carlo goodness-of-fit tests for Stochastic Blockmodels (SBMs)
 #'
-#' @description `goftest` performs chi square goodness-of-fit test for network data considering the model as beta SBM (Karwa et al. (2023))
+#' @description `goftest_BetaSBM` performs chi square goodness-of-fit test for network data considering the model as beta SBM (Karwa et al. (2023))
 #'
 #' @param A n by n binary symmetric adjacency matrix representing an undirected graph where n is the number of nodes in the graph
 #' @param K positive integer scalar representing the number of blocks; K>1
@@ -77,7 +77,7 @@
 #' adjsymm = adj + t(adj)
 #'
 #' # When class assignment is known
-#' out = goftest(adjsymm, C = class, numGraphs = 100)
+#' out = goftest_BetaSBM(adjsymm, C = class, numGraphs = 100)
 #'
 #' chi_sq_seq = out$statistic
 #' pvalue = out$p.value
@@ -127,7 +127,7 @@
 #' adjsymm = adj + t(adj)
 #'
 #' # When class assignment is known
-#' out = goftest(adjsymm, C = class, numGraphs = 100)
+#' out = goftest_BetaSBM(adjsymm, C = class, numGraphs = 100)
 #'
 #' chi_sq_seq = out$statistic
 #' pvalue = out$p.value
@@ -168,7 +168,7 @@
 #' class = rep(c(1, 2), c(n1, n2))
 
 #' # goodness-of-fit tests for the Zachary's Karate Club data set
-#' out_zachary = goftest(A_zachary, C = class, numGraphs = 100)
+#' out_zachary = goftest_BetaSBM(A_zachary, C = class, numGraphs = 100)
 #'
 #' chi_sq_seq = out_zachary$statistic
 #' pvalue = out_zachary$p.value
@@ -204,7 +204,7 @@
 #' \emph{Github Repository},
 #' <https://github.com/GhoshSoham/MCGoFSBM/tree/main>
 
-goftest = function(A, K = NULL, C = NULL, numGraphs = 100) {
+goftest_BetaSBM = function(A, K = NULL, C = NULL, numGraphs = 100) {
   # The true model is beta SBM
   # Testing whether the observed graph follows beta SBM using chi square goodness of fit test for network data
 
