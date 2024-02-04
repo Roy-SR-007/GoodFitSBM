@@ -1,5 +1,5 @@
 #'
-#' @title Maximum Likelihood Estimation of edge probabilities between blocks of a graph
+#' @title Maximum Likelihood Estimation of edge probabilities between blocks of a graph, under ERSBM
 #'
 #' @description `get_mle_ERSBM` obtains MLE for the probability of edges between blocks in a graph, used in calculating the goodness-of-fit test statistic for the ERSBM (Karwa et al. (2023))
 #'

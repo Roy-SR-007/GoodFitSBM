@@ -1,5 +1,5 @@
 #'
-#' @title Maximum Likelihood Estimation of edge probabilities between blocks of a graph
+#' @title Maximum Likelihood Estimation of edge probabilities between blocks of a graph, under beta-SBM
 #'
 #' @description `get_mle_BetaSBM` obtains MLE for the probability of edges between blocks in a graph, used in calculating the goodness-of-fit test statistic for the beta-SBM (Karwa et al. (2023))
 #'

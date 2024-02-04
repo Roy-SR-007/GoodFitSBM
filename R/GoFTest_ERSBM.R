@@ -1,5 +1,5 @@
 #'
-#' @title Monte Carlo goodness-of-fit tests for Stochastic Blockmodels (SBMs)
+#' @title Monte Carlo goodness-of-fit test for an Erdős-Rényi stochastic blockmodels (ER-SBM)
 #'
 #' @description `goftest_ERSBM` performs chi square goodness-of-fit test for network data considering the model as  ERSBM (Karwa et al. (2023))
 #'
@@ -182,26 +182,6 @@
 #' Karwa et al. (2023). "Monte Carlo goodness-of-fit tests for degree corrected and related stochastic blockmodels",
 #' \emph{Journal of the Royal Statistical Society Series B: Statistical Methodology},
 #' <https://doi.org/10.1093/jrsssb/qkad084>
-#'
-#' @references
-#' Qin, T., and Rohe, K. (2013). "Regularized spectral clustering under the degree-corrected stochastic blockmodel",
-#' \emph{Advances in neural information processing systems},
-#' <https://proceedings.neurips.cc/paper_files/paper/2013/file/0ed9422357395a0d4879191c66f4faa2-Paper.pdf>
-#'
-#' @references
-#' Lei, J., & Rinaldo, A. (2015). "Consistency of spectral clustering in stochastic block models",
-#' \emph{The Annals of Statistics},
-#' <https://doi.org/10.1214/14-AOS1274>
-#'
-#' @references
-#' Li T, Levina E, & Zhu J (2021). "randnet: Random Network Model Estimation, Selection and Parameter Tuning",
-#' \emph{R packageversion 0.3},
-#' <https://CRAN.R-project.org/package=randnet>
-#'
-#' @references
-#' Ghosh, S (2022). “MCGoSBM: Monte Carlo Goodness of Fit Tests for Stochastic Block Models”,
-#' \emph{Github Repository},
-#' <https://github.com/GhoshSoham/MCGoFSBM/tree/main>
 
 goftest_ERSBM <- function(A, K = NULL, C = NULL, numGraphs = 100) {
   # Some compatibility checks and error message

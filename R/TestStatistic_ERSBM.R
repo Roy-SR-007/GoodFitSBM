@@ -78,6 +78,12 @@
 #'
 #' # chi-square test statistic values
 #' graphchi_ERSBM(G, class, p.hat)
+#'
+#' #' @references
+#' Karwa et al. (2023). "Monte Carlo goodness-of-fit tests for degree corrected and related stochastic blockmodels",
+#' \emph{Journal of the Royal Statistical Society Series B: Statistical Methodology},
+#' <https://doi.org/10.1093/jrsssb/qkad084>
+
 graphchi_ERSBM <- function(G, C, p_mle) {
   # Input: G: igraph object which is an undirected graph and has no self loop
   #        C: numeric vector of size n of block assignment; from 1 to k
