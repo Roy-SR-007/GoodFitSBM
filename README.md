@@ -263,7 +263,7 @@ remotes::install_github("Roy-SR-007/GoodFitSBM")
 
     #> 
     #> ── R CMD build ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-    #>      checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/Rtmp1WHG8G/remotes2b0f1ac5ff65/Roy-SR-007-GoodFitSBM-acc5549/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/Rtmp1WHG8G/remotes2b0f1ac5ff65/Roy-SR-007-GoodFitSBM-acc5549/DESCRIPTION’
+    #>      checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/RtmpRX2GCi/remotes329e4aa087f5/Roy-SR-007-GoodFitSBM-4b351f1/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/RtmpRX2GCi/remotes329e4aa087f5/Roy-SR-007-GoodFitSBM-4b351f1/DESCRIPTION’
     #>   ─  preparing ‘GoodFitSBM’:
     #>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
     #>   ─  checking for LF line-endings in source and make files and shell scripts
