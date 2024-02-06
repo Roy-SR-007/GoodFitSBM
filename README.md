@@ -880,6 +880,10 @@ histogram), similar to the case as shown earlier for known block
 assignments, we reject the null of a good fit, i.e., the data
 (network/graph) does not fit the beta-SBM at all.
 
+### Acknowledgement
+
+We would like to thank all the authors of [Karwa et al. (2023)](https://doi.org/10.1093/jrsssb/qkad084).
+
 ### References
 
 - Bickel et al. (2013). “Asymptotic normality of maximum likelihood and
