@@ -2,7 +2,7 @@
 % Please edit documentation in R/TestStatistic_ERSBM.R
 \name{graphchi_ERSBM}
 \alias{graphchi_ERSBM}
-\title{Computation of the chi-square test statistic for goodness-of-fit under ERSBM}
+\title{Computation of the chi-square test statistic for goodness-of-fit, under ERSBM}
 \usage{
 graphchi_ERSBM(G, C, p_mle)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/TestStatistic_BetaSBM.R
 \name{graphchi_BetaSBM}
 \alias{graphchi_BetaSBM}
-\title{Computation of the chi-square test statistic for goodness-of-fit under beta-SBM}
+\title{Computation of the chi-square test statistic for goodness-of-fit, under beta-SBM}
 \usage{
 graphchi_BetaSBM(G, C, p_mle)
 }
