@@ -1,5 +1,5 @@
 Package: GoodFitSBM
-Title: Monte Carlo goodness-of-fit tests for Stochastic Blockmodels
+Title: Monte Carlo goodness-of-fit tests for Stochastic Blockmodels (SBMs)
 Version: 0.0.1
 Authors@R: 
     c(person("Soham", "Ghosh",
