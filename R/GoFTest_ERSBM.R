@@ -1,5 +1,5 @@
 #'
-#' @title Monte Carlo goodness-of-fit test for an Erdős-Rényi stochastic blockmodel (ER-SBM)
+#' @title Monte Carlo goodness-of-fit test for an Erdős-Rényi stochastic blockmodel (ERSBM)
 #'
 #' @description `goftest_ERSBM` performs chi square goodness-of-fit test for network data considering the model as  ERSBM (Karwa et al. (2023))
 #'
