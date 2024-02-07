@@ -263,7 +263,7 @@ remotes::install_github("Roy-SR-007/GoodFitSBM")
 
     #> 
     #> ── R CMD build ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-    #>      checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/RtmpwApf0G/remotes359c7f6dc27b/Roy-SR-007-GoodFitSBM-2b42468/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/RtmpwApf0G/remotes359c7f6dc27b/Roy-SR-007-GoodFitSBM-2b42468/DESCRIPTION’
+    #>      checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/RtmppOWUMq/remotes558b10239607/Roy-SR-007-GoodFitSBM-c756be4/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/ls/s91_zt990n9b6gdbr57m19900000gn/T/RtmppOWUMq/remotes558b10239607/Roy-SR-007-GoodFitSBM-c756be4/DESCRIPTION’
     #>   ─  preparing ‘GoodFitSBM’:
     #>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
     #>   ─  checking for LF line-endings in source and make files and shell scripts
@@ -882,7 +882,8 @@ assignments, we reject the null of a good fit, i.e., the data
 
 ### Acknowledgement
 
-We would like to thank all the authors of [Karwa et al. (2023)](https://doi.org/10.1093/jrsssb/qkad084).
+We would like to thank all the authors of [Karwa et
+al. (2023)](https://doi.org/10.1093/jrsssb/qkad084).
 
 ### References
 
