@@ -2,7 +2,7 @@
 % Please edit documentation in R/GoFTest_ERSBM.R
 \name{goftest_ERSBM}
 \alias{goftest_ERSBM}
-\title{Monte Carlo goodness-of-fit test for an Erdős-Rényi stochastic blockmodel (ER-SBM)}
+\title{Monte Carlo goodness-of-fit test for an Erdős-Rényi stochastic blockmodel (ERSBM)}
 \usage{
 goftest_ERSBM(A, K = NULL, C = NULL, numGraphs = 100)
 }
