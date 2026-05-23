@@ -34,8 +34,8 @@ Get.Induced.Subgraph = function(g, vertices) {
     return(igraph::graph.empty(n = length(vertices), directed = igraph::is.directed(g)))
   }
 
-  pairs = utils::combn(vertices, 2)
-  ei = igraph::get.edge.ids(g, pairs)
+  pairs = t(utils::combn(vertices, 2))
+  ei = igraph::get_edge_ids(g, pairs)
   ei = ei[ei != 0]
 
   return(igraph::subgraph.edges(g, ei, delete.vertice = FALSE))
